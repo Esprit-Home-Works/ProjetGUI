@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="1395px" preserveAspectRatio="none" style="width:741px;height:1395px;background:#FFFFFF;" version="1.1" viewBox="0 0 741 1395" width="741px" zoomAndPan="magnify"><defs/><g><!--MD5=[3fd616f346a44cd59a91eb10b19e157c]
+class User--><g id="elem_User"><rect codeLine="1" fill="#F1F1F1" height="206.4844" id="User" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="161" x="417" y="700"/><ellipse cx="478.75" cy="716" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M481.5156,711.875 Q481.6719,711.6563 481.8594,711.5469 Q482.0469,711.4375 482.2656,711.4375 Q482.6406,711.4375 482.875,711.7031 Q483.1094,711.9531 483.1094,712.5625 L483.1094,714.0156 Q483.1094,714.625 482.875,714.8906 Q482.6406,715.1563 482.2656,715.1563 Q481.9219,715.1563 481.7188,714.9531 Q481.5156,714.7656 481.4063,714.25 Q481.3594,713.8906 481.1719,713.7031 Q480.8438,713.3281 480.2344,713.1094 Q479.625,712.8906 479,712.8906 Q478.2344,712.8906 477.5938,713.2188 Q476.9688,713.5469 476.4688,714.2969 Q475.9844,715.0469 475.9844,716.0781 L475.9844,717.1719 Q475.9844,718.4063 476.875,719.2344 Q477.7656,720.0469 479.3594,720.0469 Q480.2969,720.0469 480.9531,719.7969 Q481.3438,719.6406 481.7656,719.2031 Q482.0313,718.9375 482.1719,718.8594 Q482.3281,718.7813 482.5313,718.7813 Q482.8594,718.7813 483.1094,719.0469 Q483.375,719.2969 483.375,719.6406 Q483.375,719.9844 483.0313,720.3906 Q482.5313,720.9688 481.7344,721.2969 Q480.6563,721.75 479.3594,721.75 Q477.8438,721.75 476.6406,721.125 Q475.6563,720.625 474.9688,719.5625 Q474.2813,718.4844 474.2813,717.2031 L474.2813,716.0469 Q474.2813,714.7188 474.8906,713.5781 Q475.5156,712.4219 476.6094,711.8125 Q477.7031,711.1875 478.9375,711.1875 Q479.6719,711.1875 480.3125,711.3594 Q480.9688,711.5156 481.5156,711.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="499.25" y="721.7285">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="418" x2="577" y1="732" y2="732"/><ellipse cx="428" cy="746.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="437" y="750.5332">id: string</text><ellipse cx="428" cy="763.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="437" y="768.1426">name: string</text><ellipse cx="428" cy="781.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="437" y="785.752">email: string</text><ellipse cx="428" cy="799.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="437" y="803.3613">password: string</text><ellipse cx="428" cy="816.7422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="125" x="437" y="820.9707">accountType: enum</text><line style="stroke:#181818;stroke-width:0.5;" x1="418" x2="577" y1="828.0469" y2="828.0469"/><ellipse cx="428" cy="842.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="121" x="437" y="846.5801">registerUser(): void</text><ellipse cx="428" cy="859.9609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="103" x="437" y="864.1895">loginUser(): void</text><ellipse cx="428" cy="877.5703" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="437" y="881.7988">logoutUser(): void</text><ellipse cx="428" cy="895.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="135" x="437" y="899.4082">manageProfile(): void</text></g><!--MD5=[a4b4d324fd2684dbb9bd6a0eaf7882b2]
+class Tournament--><g id="elem_Tournament"><rect codeLine="12" fill="#F1F1F1" height="224.0938" id="Tournament" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="255" x="7" y="7"/><ellipse cx="91.75" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M94.5156,18.875 Q94.6719,18.6563 94.8594,18.5469 Q95.0469,18.4375 95.2656,18.4375 Q95.6406,18.4375 95.875,18.7031 Q96.1094,18.9531 96.1094,19.5625 L96.1094,21.0156 Q96.1094,21.625 95.875,21.8906 Q95.6406,22.1563 95.2656,22.1563 Q94.9219,22.1563 94.7188,21.9531 Q94.5156,21.7656 94.4063,21.25 Q94.3594,20.8906 94.1719,20.7031 Q93.8438,20.3281 93.2344,20.1094 Q92.625,19.8906 92,19.8906 Q91.2344,19.8906 90.5938,20.2188 Q89.9688,20.5469 89.4688,21.2969 Q88.9844,22.0469 88.9844,23.0781 L88.9844,24.1719 Q88.9844,25.4063 89.875,26.2344 Q90.7656,27.0469 92.3594,27.0469 Q93.2969,27.0469 93.9531,26.7969 Q94.3438,26.6406 94.7656,26.2031 Q95.0313,25.9375 95.1719,25.8594 Q95.3281,25.7813 95.5313,25.7813 Q95.8594,25.7813 96.1094,26.0469 Q96.375,26.2969 96.375,26.6406 Q96.375,26.9844 96.0313,27.3906 Q95.5313,27.9688 94.7344,28.2969 Q93.6563,28.75 92.3594,28.75 Q90.8438,28.75 89.6406,28.125 Q88.6563,27.625 87.9688,26.5625 Q87.2813,25.4844 87.2813,24.2031 L87.2813,23.0469 Q87.2813,21.7188 87.8906,20.5781 Q88.5156,19.4219 89.6094,18.8125 Q90.7031,18.1875 91.9375,18.1875 Q92.6719,18.1875 93.3125,18.3594 Q93.9688,18.5156 94.5156,18.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77" x="112.25" y="28.7285">Tournament</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="261" y1="39" y2="39"/><ellipse cx="18" cy="53.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="27" y="57.5332">id: string</text><ellipse cx="18" cy="70.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="27" y="75.1426">name: string</text><ellipse cx="18" cy="88.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="27" y="92.752">description: string</text><ellipse cx="18" cy="106.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="27" y="110.3613">startDate: Date</text><ellipse cx="18" cy="123.7422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="27" y="127.9707">endDate: Date</text><ellipse cx="18" cy="141.3516" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="27" y="145.5801">teams: Array&lt;Team&gt;</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="261" y1="152.6563" y2="152.6563"/><ellipse cx="18" cy="166.9609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161" x="27" y="171.1895">createTournament(): void</text><ellipse cx="18" cy="184.5703" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="207" x="27" y="188.7988">manageTeamRegistration(): void</text><ellipse cx="18" cy="202.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="156" x="27" y="206.4082">generateBrackets(): void</text><ellipse cx="18" cy="219.7891" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="229" x="27" y="224.0176">manageTournamentProgress(): void</text></g><!--MD5=[dfb0845b8492ffe07b1ce50e003034d7]
+class Team--><g id="elem_Team"><rect codeLine="26" fill="#F1F1F1" height="118.4375" id="Team" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="199" x="223" y="966"/><ellipse cx="300.25" cy="982" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M303.0156,977.875 Q303.1719,977.6563 303.3594,977.5469 Q303.5469,977.4375 303.7656,977.4375 Q304.1406,977.4375 304.375,977.7031 Q304.6094,977.9531 304.6094,978.5625 L304.6094,980.0156 Q304.6094,980.625 304.375,980.8906 Q304.1406,981.1563 303.7656,981.1563 Q303.4219,981.1563 303.2188,980.9531 Q303.0156,980.7656 302.9063,980.25 Q302.8594,979.8906 302.6719,979.7031 Q302.3438,979.3281 301.7344,979.1094 Q301.125,978.8906 300.5,978.8906 Q299.7344,978.8906 299.0938,979.2188 Q298.4688,979.5469 297.9688,980.2969 Q297.4844,981.0469 297.4844,982.0781 L297.4844,983.1719 Q297.4844,984.4063 298.375,985.2344 Q299.2656,986.0469 300.8594,986.0469 Q301.7969,986.0469 302.4531,985.7969 Q302.8438,985.6406 303.2656,985.2031 Q303.5313,984.9375 303.6719,984.8594 Q303.8281,984.7813 304.0313,984.7813 Q304.3594,984.7813 304.6094,985.0469 Q304.875,985.2969 304.875,985.6406 Q304.875,985.9844 304.5313,986.3906 Q304.0313,986.9688 303.2344,987.2969 Q302.1563,987.75 300.8594,987.75 Q299.3438,987.75 298.1406,987.125 Q297.1563,986.625 296.4688,985.5625 Q295.7813,984.4844 295.7813,983.2031 L295.7813,982.0469 Q295.7813,980.7188 296.3906,979.5781 Q297.0156,978.4219 298.1094,977.8125 Q299.2031,977.1875 300.4375,977.1875 Q301.1719,977.1875 301.8125,977.3594 Q302.4688,977.5156 303.0156,977.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="36" x="320.75" y="987.7285">Team</text><line style="stroke:#181818;stroke-width:0.5;" x1="224" x2="421" y1="998" y2="998"/><ellipse cx="234" cy="1012.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="243" y="1016.5332">description: string</text><ellipse cx="234" cy="1029.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="70" x="243" y="1034.1426">logo: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="224" x2="421" y1="1041.2188" y2="1041.2188"/><ellipse cx="234" cy="1055.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="243" y="1059.752">registerTeam(): void</text><ellipse cx="234" cy="1073.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173" x="243" y="1077.3613">manageComposition(): void</text></g><!--MD5=[2cb47ba637a0d19583e6199456f6ad0b]
+class Player--><g id="elem_Player"><rect codeLine="33" fill="#F1F1F1" height="83.2188" id="Player" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="201" x="298" y="1305"/><ellipse cx="374.25" cy="1321" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M377.0156,1316.875 Q377.1719,1316.6563 377.3594,1316.5469 Q377.5469,1316.4375 377.7656,1316.4375 Q378.1406,1316.4375 378.375,1316.7031 Q378.6094,1316.9531 378.6094,1317.5625 L378.6094,1319.0156 Q378.6094,1319.625 378.375,1319.8906 Q378.1406,1320.1563 377.7656,1320.1563 Q377.4219,1320.1563 377.2188,1319.9531 Q377.0156,1319.7656 376.9063,1319.25 Q376.8594,1318.8906 376.6719,1318.7031 Q376.3438,1318.3281 375.7344,1318.1094 Q375.125,1317.8906 374.5,1317.8906 Q373.7344,1317.8906 373.0938,1318.2188 Q372.4688,1318.5469 371.9688,1319.2969 Q371.4844,1320.0469 371.4844,1321.0781 L371.4844,1322.1719 Q371.4844,1323.4063 372.375,1324.2344 Q373.2656,1325.0469 374.8594,1325.0469 Q375.7969,1325.0469 376.4531,1324.7969 Q376.8438,1324.6406 377.2656,1324.2031 Q377.5313,1323.9375 377.6719,1323.8594 Q377.8281,1323.7813 378.0313,1323.7813 Q378.3594,1323.7813 378.6094,1324.0469 Q378.875,1324.2969 378.875,1324.6406 Q378.875,1324.9844 378.5313,1325.3906 Q378.0313,1325.9688 377.2344,1326.2969 Q376.1563,1326.75 374.8594,1326.75 Q373.3438,1326.75 372.1406,1326.125 Q371.1563,1325.625 370.4688,1324.5625 Q369.7813,1323.4844 369.7813,1322.2031 L369.7813,1321.0469 Q369.7813,1319.7188 370.3906,1318.5781 Q371.0156,1317.4219 372.1094,1316.8125 Q373.2031,1316.1875 374.4375,1316.1875 Q375.1719,1316.1875 375.8125,1316.3594 Q376.4688,1316.5156 377.0156,1316.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="40" x="394.75" y="1326.7285">Player</text><line style="stroke:#181818;stroke-width:0.5;" x1="299" x2="498" y1="1337" y2="1337"/><line style="stroke:#181818;stroke-width:0.5;" x1="299" x2="498" y1="1345" y2="1345"/><ellipse cx="309" cy="1359.3047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="318" y="1363.5332">registerPlayer(): void</text><ellipse cx="309" cy="1376.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="175" x="318" y="1381.1426">managePlayerProfile(): void</text></g><!--MD5=[db6d18d8099558415abc41d00477ab92]
+class Admin--><g id="elem_Admin"><rect codeLine="38" fill="#F1F1F1" height="118.4375" id="Admin" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="205" x="529" y="966"/><ellipse cx="607.75" cy="982" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M610.5156,977.875 Q610.6719,977.6563 610.8594,977.5469 Q611.0469,977.4375 611.2656,977.4375 Q611.6406,977.4375 611.875,977.7031 Q612.1094,977.9531 612.1094,978.5625 L612.1094,980.0156 Q612.1094,980.625 611.875,980.8906 Q611.6406,981.1563 611.2656,981.1563 Q610.9219,981.1563 610.7188,980.9531 Q610.5156,980.7656 610.4063,980.25 Q610.3594,979.8906 610.1719,979.7031 Q609.8438,979.3281 609.2344,979.1094 Q608.625,978.8906 608,978.8906 Q607.2344,978.8906 606.5938,979.2188 Q605.9688,979.5469 605.4688,980.2969 Q604.9844,981.0469 604.9844,982.0781 L604.9844,983.1719 Q604.9844,984.4063 605.875,985.2344 Q606.7656,986.0469 608.3594,986.0469 Q609.2969,986.0469 609.9531,985.7969 Q610.3438,985.6406 610.7656,985.2031 Q611.0313,984.9375 611.1719,984.8594 Q611.3281,984.7813 611.5313,984.7813 Q611.8594,984.7813 612.1094,985.0469 Q612.375,985.2969 612.375,985.6406 Q612.375,985.9844 612.0313,986.3906 Q611.5313,986.9688 610.7344,987.2969 Q609.6563,987.75 608.3594,987.75 Q606.8438,987.75 605.6406,987.125 Q604.6563,986.625 603.9688,985.5625 Q603.2813,984.4844 603.2813,983.2031 L603.2813,982.0469 Q603.2813,980.7188 603.8906,979.5781 Q604.5156,978.4219 605.6094,977.8125 Q606.7031,977.1875 607.9375,977.1875 Q608.6719,977.1875 609.3125,977.3594 Q609.9688,977.5156 610.5156,977.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="628.25" y="987.7285">Admin</text><line style="stroke:#181818;stroke-width:0.5;" x1="530" x2="733" y1="998" y2="998"/><line style="stroke:#181818;stroke-width:0.5;" x1="530" x2="733" y1="1006" y2="1006"/><ellipse cx="540" cy="1020.3047" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="179" x="549" y="1024.5332">manageTournaments(): void</text><ellipse cx="540" cy="1037.9141" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131" x="549" y="1042.1426">manageUsers(): void</text><ellipse cx="540" cy="1055.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="549" y="1059.752">manageTeams(): void</text><ellipse cx="540" cy="1073.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="549" y="1077.3613">managePlayers(): void</text></g><!--MD5=[5f0899136ed8f523b18ed05779c24112]
+class Match--><g id="elem_Match"><rect codeLine="46" fill="#F1F1F1" height="171.2656" id="Match" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="206" x="245.5" y="469"/><ellipse cx="325.25" cy="485" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M328.0156,480.875 Q328.1719,480.6563 328.3594,480.5469 Q328.5469,480.4375 328.7656,480.4375 Q329.1406,480.4375 329.375,480.7031 Q329.6094,480.9531 329.6094,481.5625 L329.6094,483.0156 Q329.6094,483.625 329.375,483.8906 Q329.1406,484.1563 328.7656,484.1563 Q328.4219,484.1563 328.2188,483.9531 Q328.0156,483.7656 327.9063,483.25 Q327.8594,482.8906 327.6719,482.7031 Q327.3438,482.3281 326.7344,482.1094 Q326.125,481.8906 325.5,481.8906 Q324.7344,481.8906 324.0938,482.2188 Q323.4688,482.5469 322.9688,483.2969 Q322.4844,484.0469 322.4844,485.0781 L322.4844,486.1719 Q322.4844,487.4063 323.375,488.2344 Q324.2656,489.0469 325.8594,489.0469 Q326.7969,489.0469 327.4531,488.7969 Q327.8438,488.6406 328.2656,488.2031 Q328.5313,487.9375 328.6719,487.8594 Q328.8281,487.7813 329.0313,487.7813 Q329.3594,487.7813 329.6094,488.0469 Q329.875,488.2969 329.875,488.6406 Q329.875,488.9844 329.5313,489.3906 Q329.0313,489.9688 328.2344,490.2969 Q327.1563,490.75 325.8594,490.75 Q324.3438,490.75 323.1406,490.125 Q322.1563,489.625 321.4688,488.5625 Q320.7813,487.4844 320.7813,486.2031 L320.7813,485.0469 Q320.7813,483.7188 321.3906,482.5781 Q322.0156,481.4219 323.1094,480.8125 Q324.2031,480.1875 325.4375,480.1875 Q326.1719,480.1875 326.8125,480.3594 Q327.4688,480.5156 328.0156,480.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="38" x="345.75" y="490.7285">Match</text><line style="stroke:#181818;stroke-width:0.5;" x1="246.5" x2="450.5" y1="501" y2="501"/><ellipse cx="256.5" cy="515.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="265.5" y="519.5332">id: string</text><ellipse cx="256.5" cy="532.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="265.5" y="537.1426">name: string</text><ellipse cx="256.5" cy="550.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="112" x="265.5" y="554.752">description: string</text><ellipse cx="256.5" cy="568.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="265.5" y="572.3613">startDate: Date</text><ellipse cx="256.5" cy="585.7422" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="265.5" y="589.9707">endDate: Date</text><line style="stroke:#181818;stroke-width:0.5;" x1="246.5" x2="450.5" y1="597.0469" y2="597.0469"/><ellipse cx="256.5" cy="611.3516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="180" x="265.5" y="615.5801">manageMatchResults(): void</text><ellipse cx="256.5" cy="628.9609" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132" x="265.5" y="633.1895">submitResults(): void</text></g><!--MD5=[40d2668bbcd459976779c45dfe17221f]
+class Statistics--><g id="elem_Statistics"><rect codeLine="57" fill="#F1F1F1" height="136.0469" id="Statistics" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="213" x="297" y="51"/><ellipse cx="371.25" cy="67" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M374.0156,62.875 Q374.1719,62.6563 374.3594,62.5469 Q374.5469,62.4375 374.7656,62.4375 Q375.1406,62.4375 375.375,62.7031 Q375.6094,62.9531 375.6094,63.5625 L375.6094,65.0156 Q375.6094,65.625 375.375,65.8906 Q375.1406,66.1563 374.7656,66.1563 Q374.4219,66.1563 374.2188,65.9531 Q374.0156,65.7656 373.9063,65.25 Q373.8594,64.8906 373.6719,64.7031 Q373.3438,64.3281 372.7344,64.1094 Q372.125,63.8906 371.5,63.8906 Q370.7344,63.8906 370.0938,64.2188 Q369.4688,64.5469 368.9688,65.2969 Q368.4844,66.0469 368.4844,67.0781 L368.4844,68.1719 Q368.4844,69.4063 369.375,70.2344 Q370.2656,71.0469 371.8594,71.0469 Q372.7969,71.0469 373.4531,70.7969 Q373.8438,70.6406 374.2656,70.2031 Q374.5313,69.9375 374.6719,69.8594 Q374.8281,69.7813 375.0313,69.7813 Q375.3594,69.7813 375.6094,70.0469 Q375.875,70.2969 375.875,70.6406 Q375.875,70.9844 375.5313,71.3906 Q375.0313,71.9688 374.2344,72.2969 Q373.1563,72.75 371.8594,72.75 Q370.3438,72.75 369.1406,72.125 Q368.1563,71.625 367.4688,70.5625 Q366.7813,69.4844 366.7813,68.2031 L366.7813,67.0469 Q366.7813,65.7188 367.3906,64.5781 Q368.0156,63.4219 369.1094,62.8125 Q370.2031,62.1875 371.4375,62.1875 Q372.1719,62.1875 372.8125,62.3594 Q373.4688,62.5156 374.0156,62.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="391.75" y="72.7285">Statistics</text><line style="stroke:#181818;stroke-width:0.5;" x1="298" x2="509" y1="83" y2="83"/><ellipse cx="308" cy="97.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="317" y="101.5332">id: string</text><ellipse cx="308" cy="114.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="95" x="317" y="119.1426">score : number</text><line style="stroke:#181818;stroke-width:0.5;" x1="298" x2="509" y1="126.2188" y2="126.2188"/><ellipse cx="308" cy="140.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="160" x="317" y="144.752">compileTeamStats(): void</text><ellipse cx="308" cy="158.1328" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164" x="317" y="162.3613">compilePlayerStats(): void</text><ellipse cx="308" cy="175.7422" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="187" x="317" y="179.9707">viewPastPerformances(): void</text></g><!--MD5=[b9b8d6166e8c27423f805b0c95ab0a88]
+class TeamPlayer--><g id="elem_TeamPlayer"><rect codeLine="65" fill="#F1F1F1" height="100.8281" id="TeamPlayer" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="119" x="283" y="1144"/><ellipse cx="302.95" cy="1160" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M305.7156,1155.875 Q305.8719,1155.6563 306.0594,1155.5469 Q306.2469,1155.4375 306.4656,1155.4375 Q306.8406,1155.4375 307.075,1155.7031 Q307.3094,1155.9531 307.3094,1156.5625 L307.3094,1158.0156 Q307.3094,1158.625 307.075,1158.8906 Q306.8406,1159.1563 306.4656,1159.1563 Q306.1219,1159.1563 305.9188,1158.9531 Q305.7156,1158.7656 305.6063,1158.25 Q305.5594,1157.8906 305.3719,1157.7031 Q305.0438,1157.3281 304.4344,1157.1094 Q303.825,1156.8906 303.2,1156.8906 Q302.4344,1156.8906 301.7938,1157.2188 Q301.1688,1157.5469 300.6688,1158.2969 Q300.1844,1159.0469 300.1844,1160.0781 L300.1844,1161.1719 Q300.1844,1162.4063 301.075,1163.2344 Q301.9656,1164.0469 303.5594,1164.0469 Q304.4969,1164.0469 305.1531,1163.7969 Q305.5438,1163.6406 305.9656,1163.2031 Q306.2313,1162.9375 306.3719,1162.8594 Q306.5281,1162.7813 306.7313,1162.7813 Q307.0594,1162.7813 307.3094,1163.0469 Q307.575,1163.2969 307.575,1163.6406 Q307.575,1163.9844 307.2313,1164.3906 Q306.7313,1164.9688 305.9344,1165.2969 Q304.8563,1165.75 303.5594,1165.75 Q302.0438,1165.75 300.8406,1165.125 Q299.8563,1164.625 299.1688,1163.5625 Q298.4813,1162.4844 298.4813,1161.2031 L298.4813,1160.0469 Q298.4813,1158.7188 299.0906,1157.5781 Q299.7156,1156.4219 300.8094,1155.8125 Q301.9031,1155.1875 303.1375,1155.1875 Q303.8719,1155.1875 304.5125,1155.3594 Q305.1688,1155.5156 305.7156,1155.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="318.05" y="1165.7285">TeamPlayer</text><line style="stroke:#181818;stroke-width:0.5;" x1="284" x2="401" y1="1176" y2="1176"/><ellipse cx="294" cy="1190.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="303" y="1194.5332">id: string</text><ellipse cx="294" cy="1207.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="303" y="1212.1426">teamId: string</text><ellipse cx="294" cy="1225.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="303" y="1229.752">playerId: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="284" x2="401" y1="1236.8281" y2="1236.8281"/></g><!--MD5=[3ced074a61577b241536c56df331ce34]
+class TournamentTeam--><g id="elem_TournamentTeam"><rect codeLine="70" fill="#F1F1F1" height="100.8281" id="TournamentTeam" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152" x="58.5" y="504"/><ellipse cx="76.65" cy="520" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M79.4156,515.875 Q79.5719,515.6563 79.7594,515.5469 Q79.9469,515.4375 80.1656,515.4375 Q80.5406,515.4375 80.775,515.7031 Q81.0094,515.9531 81.0094,516.5625 L81.0094,518.0156 Q81.0094,518.625 80.775,518.8906 Q80.5406,519.1563 80.1656,519.1563 Q79.8219,519.1563 79.6188,518.9531 Q79.4156,518.7656 79.3063,518.25 Q79.2594,517.8906 79.0719,517.7031 Q78.7438,517.3281 78.1344,517.1094 Q77.525,516.8906 76.9,516.8906 Q76.1344,516.8906 75.4938,517.2188 Q74.8688,517.5469 74.3688,518.2969 Q73.8844,519.0469 73.8844,520.0781 L73.8844,521.1719 Q73.8844,522.4063 74.775,523.2344 Q75.6656,524.0469 77.2594,524.0469 Q78.1969,524.0469 78.8531,523.7969 Q79.2438,523.6406 79.6656,523.2031 Q79.9313,522.9375 80.0719,522.8594 Q80.2281,522.7813 80.4313,522.7813 Q80.7594,522.7813 81.0094,523.0469 Q81.275,523.2969 81.275,523.6406 Q81.275,523.9844 80.9313,524.3906 Q80.4313,524.9688 79.6344,525.2969 Q78.5563,525.75 77.2594,525.75 Q75.7438,525.75 74.5406,525.125 Q73.5563,524.625 72.8688,523.5625 Q72.1813,522.4844 72.1813,521.2031 L72.1813,520.0469 Q72.1813,518.7188 72.7906,517.5781 Q73.4156,516.4219 74.5094,515.8125 Q75.6031,515.1875 76.8375,515.1875 Q77.5719,515.1875 78.2125,515.3594 Q78.8688,515.5156 79.4156,515.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113" x="91.35" y="525.7285">TournamentTeam</text><line style="stroke:#181818;stroke-width:0.5;" x1="59.5" x2="209.5" y1="536" y2="536"/><ellipse cx="69.5" cy="550.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="78.5" y="554.5332">id: string</text><ellipse cx="69.5" cy="567.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="78.5" y="572.1426">tournamentId: string</text><ellipse cx="69.5" cy="585.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="78.5" y="589.752">teamId: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="59.5" x2="209.5" y1="596.8281" y2="596.8281"/></g><!--MD5=[1e6095b36f09422f1af00d3cec8dd649]
+class TournamentMatch--><g id="elem_TournamentMatch"><rect codeLine="75" fill="#F1F1F1" height="118.4375" id="TournamentMatch" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152" x="272.5" y="291"/><ellipse cx="289.75" cy="307" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M292.5156,302.875 Q292.6719,302.6563 292.8594,302.5469 Q293.0469,302.4375 293.2656,302.4375 Q293.6406,302.4375 293.875,302.7031 Q294.1094,302.9531 294.1094,303.5625 L294.1094,305.0156 Q294.1094,305.625 293.875,305.8906 Q293.6406,306.1563 293.2656,306.1563 Q292.9219,306.1563 292.7188,305.9531 Q292.5156,305.7656 292.4063,305.25 Q292.3594,304.8906 292.1719,304.7031 Q291.8438,304.3281 291.2344,304.1094 Q290.625,303.8906 290,303.8906 Q289.2344,303.8906 288.5938,304.2188 Q287.9688,304.5469 287.4688,305.2969 Q286.9844,306.0469 286.9844,307.0781 L286.9844,308.1719 Q286.9844,309.4063 287.875,310.2344 Q288.7656,311.0469 290.3594,311.0469 Q291.2969,311.0469 291.9531,310.7969 Q292.3438,310.6406 292.7656,310.2031 Q293.0313,309.9375 293.1719,309.8594 Q293.3281,309.7813 293.5313,309.7813 Q293.8594,309.7813 294.1094,310.0469 Q294.375,310.2969 294.375,310.6406 Q294.375,310.9844 294.0313,311.3906 Q293.5313,311.9688 292.7344,312.2969 Q291.6563,312.75 290.3594,312.75 Q288.8438,312.75 287.6406,312.125 Q286.6563,311.625 285.9688,310.5625 Q285.2813,309.4844 285.2813,308.2031 L285.2813,307.0469 Q285.2813,305.7188 285.8906,304.5781 Q286.5156,303.4219 287.6094,302.8125 Q288.7031,302.1875 289.9375,302.1875 Q290.6719,302.1875 291.3125,302.3594 Q291.9688,302.5156 292.5156,302.875 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115" x="304.25" y="312.7285">TournamentMatch</text><line style="stroke:#181818;stroke-width:0.5;" x1="273.5" x2="423.5" y1="323" y2="323"/><ellipse cx="283.5" cy="337.3047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="292.5" y="341.5332">id: string</text><ellipse cx="283.5" cy="354.9141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="292.5" y="359.1426">tournamentId: string</text><ellipse cx="283.5" cy="372.5234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="292.5" y="376.752">matchId: string</text><ellipse cx="283.5" cy="390.1328" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110" x="292.5" y="394.3613">idStatistics: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="273.5" x2="423.5" y1="401.4375" y2="401.4375"/></g><!--MD5=[9b7edf2459a26c2691be50343be05bb6]
+class MatchTeam--><g id="elem_MatchTeam"><rect codeLine="81" fill="#F1F1F1" height="100.8281" id="MatchTeam" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="118" x="263.5" y="752.5"/><ellipse cx="283.9" cy="768.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1.0;"/><path d="M286.6656,764.375 Q286.8219,764.1563 287.0094,764.0469 Q287.1969,763.9375 287.4156,763.9375 Q287.7906,763.9375 288.025,764.2031 Q288.2594,764.4531 288.2594,765.0625 L288.2594,766.5156 Q288.2594,767.125 288.025,767.3906 Q287.7906,767.6563 287.4156,767.6563 Q287.0719,767.6563 286.8688,767.4531 Q286.6656,767.2656 286.5563,766.75 Q286.5094,766.3906 286.3219,766.2031 Q285.9938,765.8281 285.3844,765.6094 Q284.775,765.3906 284.15,765.3906 Q283.3844,765.3906 282.7438,765.7188 Q282.1188,766.0469 281.6188,766.7969 Q281.1344,767.5469 281.1344,768.5781 L281.1344,769.6719 Q281.1344,770.9063 282.025,771.7344 Q282.9156,772.5469 284.5094,772.5469 Q285.4469,772.5469 286.1031,772.2969 Q286.4938,772.1406 286.9156,771.7031 Q287.1813,771.4375 287.3219,771.3594 Q287.4781,771.2813 287.6813,771.2813 Q288.0094,771.2813 288.2594,771.5469 Q288.525,771.7969 288.525,772.1406 Q288.525,772.4844 288.1813,772.8906 Q287.6813,773.4688 286.8844,773.7969 Q285.8063,774.25 284.5094,774.25 Q282.9938,774.25 281.7906,773.625 Q280.8063,773.125 280.1188,772.0625 Q279.4313,770.9844 279.4313,769.7031 L279.4313,768.5469 Q279.4313,767.2188 280.0406,766.0781 Q280.6656,764.9219 281.7594,764.3125 Q282.8531,763.6875 284.0875,763.6875 Q284.8219,763.6875 285.4625,763.8594 Q286.1188,764.0156 286.6656,764.375 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="299.1" y="774.2285">MatchTeam</text><line style="stroke:#181818;stroke-width:0.5;" x1="264.5" x2="380.5" y1="784.5" y2="784.5"/><ellipse cx="274.5" cy="798.8047" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="54" x="283.5" y="803.0332">id: string</text><ellipse cx="274.5" cy="816.4141" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="283.5" y="820.6426">matchId: string</text><ellipse cx="274.5" cy="834.0234" fill="none" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="283.5" y="838.252">teamId: string</text><line style="stroke:#181818;stroke-width:0.5;" x1="264.5" x2="380.5" y1="845.3281" y2="845.3281"/></g><!--MD5=[8bfa7694e729ebb72c8a0da7aad88b3e]
+reverse link User to Team--><g id="link_User_Team"><path d="M404.12,921.39 C391.86,936.8 379.76,952.02 368.78,965.82 " fill="none" id="User-backto-Team" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="398.99,916.6,416.91,905.31,409.94,925.32,398.99,916.6" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[702f68b2ad22fef5191ac7472ca929ab]
+reverse link User to Player--><g id="link_User_Player"><path d="M476.97,925.98 C461.79,1014.62 440.25,1137.41 419.5,1245 C415.69,1264.78 411.15,1286.68 407.27,1304.97 " fill="none" id="User-backto-Player" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="470.08,924.73,480.35,906.2,483.88,927.09,470.08,924.73" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[933987b91d2b08b1b4941f3221fa6cec]
+reverse link User to Admin--><g id="link_User_Admin"><path d="M570.3,923.52 C579.23,938.19 588.02,952.62 596.04,965.77 " fill="none" id="User-backto-Admin" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="564.22,926.99,559.79,906.27,576.17,919.71,564.22,926.99" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2c85878f275ee206107068935ff23085]
+link Tournament to TournamentTeam--><g id="link_Tournament_TournamentTeam"><path codeLine="88" d="M134.5,231.07 C134.5,319 134.5,437.64 134.5,503.74 " fill="none" id="Tournament-TournamentTeam" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7d83529ecea039aa9ebdc4b1a50d86c1]
+link TournamentTeam to Team--><g id="link_TournamentTeam_Team"><path codeLine="89" d="M145.99,605.23 C162.99,674.6 198.13,803.45 246.5,906 C256.06,926.28 268.57,947.22 280.67,965.73 " fill="none" id="TournamentTeam-Team" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1137c8b3f17f9728274c42952f615231]
+link Team to TeamPlayer--><g id="link_Team_TeamPlayer"><path codeLine="92" d="M329.44,1084.11 C331.76,1103.58 334.33,1125.09 336.57,1143.84 " fill="none" id="Team-TeamPlayer" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c08174e10953bf568fdc40275bc4c01d]
+link TeamPlayer to Player--><g id="link_TeamPlayer_Player"><path codeLine="93" d="M360.99,1245.03 C368.19,1264.32 376.34,1286.15 383.2,1304.53 " fill="none" id="TeamPlayer-Player" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[2b86b80ea2a4120c728d5373135e0d32]
+link Tournament to TournamentMatch--><g id="link_Tournament_TournamentMatch"><path codeLine="96" d="M238.37,231.15 C257.64,251.77 277.05,272.54 294.09,290.78 " fill="none" id="Tournament-TournamentMatch" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[849d89454cdd930a4f8c3e1fc496f3cb]
+link TournamentMatch to Match--><g id="link_TournamentMatch_Match"><path codeLine="97" d="M348.5,409.03 C348.5,427.61 348.5,448.58 348.5,468.67 " fill="none" id="TournamentMatch-Match" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[0a01ff8b8fc19ede028ff5b0163c0ee5]
+link Match to MatchTeam--><g id="link_Match_MatchTeam"><path codeLine="100" d="M339.55,640.33 C335.62,677.65 331.13,720.2 327.74,752.27 " fill="none" id="Match-MatchTeam" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b7de63e4a2197fa561dc8d1a944d8ee2]
+link MatchTeam to Team--><g id="link_MatchTeam_Team"><path codeLine="101" d="M322.5,853.65 C322.5,886.98 322.5,931.01 322.5,965.97 " fill="none" id="MatchTeam-Team" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[a27c74ee764ed2334bd5aa8f1d5a5014]
+link Statistics to TournamentMatch--><g id="link_Statistics_TournamentMatch"><path codeLine="104" d="M387.37,187.16 C379.48,220.02 370.07,259.2 362.48,290.77 " fill="none" id="Statistics-TournamentMatch" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[ba0426bd2c25f9cd1cf159fbdf184630]
+@startuml
+class User {
+  +id: string
+  +name: string
+  +email: string
+  +password: string
+  +accountType: enum
+  +registerUser(): void
+  +loginUser(): void
+  +logoutUser(): void
+  +manageProfile(): void
+}
+class Tournament {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  +teams: Array<Team>
+  
+  +createTournament(): void
+  +manageTeamRegistration(): void
+  +generateBrackets(): void
+  +manageTournamentProgress(): void
+}
+
+class Team extends User {
+  +description: string
+  +logo: string
+  +registerTeam(): void
+  +manageComposition(): void
+}
+
+class Player extends User{
+
+  +registerPlayer(): void
+  +managePlayerProfile(): void
+}
+class Admin extends User{
+
+  +manageTournaments(): void
+  +manageUsers(): void
+  +manageTeams(): void
+  +managePlayers(): void
+}
+
+class Match {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  
+  +manageMatchResults(): void
+  +submitResults(): void
+}
+
+class Statistics {
+  +id: string
+  +score : number
+  +compileTeamStats(): void
+  +compilePlayerStats(): void
+  +viewPastPerformances(): void
+}
+
+class TeamPlayer {
+  +id: string
+  +teamId: string
+  +playerId: string
+}
+class TournamentTeam {
+  +id: string
+  +tournamentId: string
+  +teamId: string
+}
+class TournamentMatch {
+  +id: string
+  +tournamentId: string
+  +matchId: string
+  +idStatistics: string
+}
+class MatchTeam {
+  +id: string
+  +matchId: string
+  +teamId: string
+}
+
+' relationship many Tournament to many Team using the TournamentTeam class 
+Tournament - - TournamentTeam
+TournamentTeam - - Team
+
+' relationship many Team to many Player using the TeamPlayer class
+Team - - TeamPlayer
+TeamPlayer - - Player
+
+' relationship many Tournament to many Match using the TournamentMatch class
+Tournament - - TournamentMatch
+TournamentMatch - - Match
+
+' relationship many Match to many Team using the MatchTeam class
+Match - - MatchTeam
+MatchTeam - - Team
+
+' relationship many statics to many Tournament using the TournamentMatch class
+Statistics - - TournamentMatch
+
+
+@enduml
+
+@startuml
+class User {
+  +id: string
+  +name: string
+  +email: string
+  +password: string
+  +accountType: enum
+  +registerUser(): void
+  +loginUser(): void
+  +logoutUser(): void
+  +manageProfile(): void
+}
+class Tournament {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  +teams: Array<Team>
+  
+  +createTournament(): void
+  +manageTeamRegistration(): void
+  +generateBrackets(): void
+  +manageTournamentProgress(): void
+}
+
+class Team extends User {
+  +description: string
+  +logo: string
+  +registerTeam(): void
+  +manageComposition(): void
+}
+
+class Player extends User{
+
+  +registerPlayer(): void
+  +managePlayerProfile(): void
+}
+class Admin extends User{
+
+  +manageTournaments(): void
+  +manageUsers(): void
+  +manageTeams(): void
+  +managePlayers(): void
+}
+
+class Match {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  
+  +manageMatchResults(): void
+  +submitResults(): void
+}
+
+class Statistics {
+  +id: string
+  +score : number
+  +compileTeamStats(): void
+  +compilePlayerStats(): void
+  +viewPastPerformances(): void
+}
+
+class TeamPlayer {
+  +id: string
+  +teamId: string
+  +playerId: string
+}
+class TournamentTeam {
+  +id: string
+  +tournamentId: string
+  +teamId: string
+}
+class TournamentMatch {
+  +id: string
+  +tournamentId: string
+  +matchId: string
+  +idStatistics: string
+}
+class MatchTeam {
+  +id: string
+  +matchId: string
+  +teamId: string
+}
+
+Tournament - - TournamentTeam
+TournamentTeam - - Team
+
+Team - - TeamPlayer
+TeamPlayer - - Player
+
+Tournament - - TournamentMatch
+TournamentMatch - - Match
+
+Match - - MatchTeam
+MatchTeam - - Team
+
+Statistics - - TournamentMatch
+
+
+@enduml
+
+PlantUML version 1.2022.7(Mon Aug 22 18:01:30 GMT+01:00 2022)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

@@ -1,0 +1,109 @@
+@startuml
+class User {
+  +id: string
+  +name: string
+  +email: string
+  +password: string
+  +accountType: enum
+  +registerUser(): void
+  +loginUser(): void
+  +logoutUser(): void
+  +manageProfile(): void
+}
+class Tournament {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  +teams: Array<Team>
+  
+  +createTournament(): void
+  +manageTeamRegistration(): void
+  +generateBrackets(): void
+  +manageTournamentProgress(): void
+}
+
+class Team extends User {
+  +description: string
+  +logo: string
+  +registerTeam(): void
+  +manageComposition(): void
+}
+
+class Player extends User{
+
+  +registerPlayer(): void
+  +managePlayerProfile(): void
+}
+class Admin extends User{
+
+  +manageTournaments(): void
+  +manageUsers(): void
+  +manageTeams(): void
+  +managePlayers(): void
+}
+
+class Match {
+  +id: string
+  +name: string
+  +description: string
+  +startDate: Date
+  +endDate: Date
+  
+  +manageMatchResults(): void
+  +submitResults(): void
+}
+
+class Statistics {
+  +id: string
+  +score : number
+  +compileTeamStats(): void
+  +compilePlayerStats(): void
+  +viewPastPerformances(): void
+}
+
+class TeamPlayer {
+  +id: string
+  +teamId: string
+  +playerId: string
+}
+class TournamentTeam {
+  +id: string
+  +tournamentId: string
+  +teamId: string
+}
+class TournamentMatch {
+  +id: string
+  +tournamentId: string
+  +matchId: string
+  +idStatistics: string
+}
+class MatchTeam {
+  +id: string
+  +matchId: string
+  +teamId: string
+}
+
+' relationship many Tournament to many Team using the TournamentTeam class 
+Tournament -- TournamentTeam
+TournamentTeam -- Team
+
+' relationship many Team to many Player using the TeamPlayer class
+Team -- TeamPlayer
+TeamPlayer -- Player
+
+' relationship many Tournament to many Match using the TournamentMatch class
+Tournament -- TournamentMatch
+TournamentMatch -- Match
+
+' relationship many Match to many Team using the MatchTeam class
+Match -- MatchTeam
+MatchTeam -- Team
+
+' relationship many statics to many Tournament using the TournamentMatch class
+Statistics -- TournamentMatch
+
+
+@enduml
+
