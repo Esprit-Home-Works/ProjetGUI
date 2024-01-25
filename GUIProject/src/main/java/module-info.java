@@ -6,5 +6,6 @@ module com.project.guiproject {
     requires org.kordamp.bootstrapfx.core;
 
     opens com.project.guiproject to javafx.fxml;
-    exports com.project.guiproject;
+    exports com.project.guiproject.test;
+    opens com.project.guiproject.test to javafx.fxml;
 }
