@@ -30,4 +30,7 @@ public class Player extends User {
     public String toString() {
         return "Player [userId=" + getUserId() + ", teamId=" + teamId + ", username=" + getUsername() + ", password=" + getPassword() + ", email=" + getEmail() + "]";
     }
+
+    private String getUserId() {
+    }
 }
