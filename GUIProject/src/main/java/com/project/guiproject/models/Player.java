@@ -7,7 +7,7 @@ public class Player extends User {
     }
 
     public Player(int userId, int teamId) {
-        super(userId);
+        super();
         this.teamId = teamId;
     }
 
@@ -26,11 +26,12 @@ public class Player extends User {
         this.teamId = teamId;
     }
 
-    @Override
-    public String toString() {
+   /* @Override
+   public String toString() {
+
         return "Player [userId=" + getUserId() + ", teamId=" + teamId + ", username=" + getUsername() + ", password=" + getPassword() + ", email=" + getEmail() + "]";
     }
 
     private String getUserId() {
-    }
+    }*/
 }

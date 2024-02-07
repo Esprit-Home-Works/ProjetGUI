@@ -15,8 +15,8 @@ public class Main {
         // MatchService matchService = new MatchService();
         UserService user = new UserService();
         try {
-            user.add(new User(1, "kamel", "12345",
-                    "kamel.htira@gmail.com"));
+      //      user.add(new User(1, "root", "",
+        //            "sedki99bani@gmail.com"));
             // new Date(2021, 1, 1)));
             // matchService.add(new Match(180, "match 2", "test Match",
             // "MT_001", new Date(2021, 1, 1),
