@@ -1,16 +1,12 @@
 package com.project.guiproject.services;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.project.guiproject.models.User;
+import com.project.guiproject.utils.MyDataBase;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.project.guiproject.models.User;
-import com.project.guiproject.utils.MyDataBase;
 
 public class UserService implements IService<User> {
 
@@ -98,8 +94,12 @@ public class UserService implements IService<User> {
     }
 
     public void signup(String username, String password, String email) throws SQLException {
-        User user = new User(username, password, email);
-        add(user);
+        User User = new User(username, password, email);
+        add(User);
     }
 
+    public User registerUser(String testUser, String password123, String mail) {
+        return null;
+    }
 }
+

@@ -1,15 +1,24 @@
 package com.project.guiproject.models;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Entity
+@Table(name = "tournaments")
 public class Tournament {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String description;
     private Date startDate;
     private Date endDate;
-    private List<Team> teams;  // Supposons que chaque tournoi a une liste d'équipes participantes
+    @OneToMany(mappedBy = "tournament")
+    private List<Team> teams;
+
+    public Tournament() {
+    }
 
     public Tournament(int id, String name, String description, Date startDate, Date endDate, List<Team> teams) {
         this.id = id;
@@ -26,9 +35,6 @@ public class Tournament {
         this.startDate = startDate;
         this.endDate = endDate;
         this.teams = teams;
-    }
-    public Tournament( ) {
-
     }
 
     @Override

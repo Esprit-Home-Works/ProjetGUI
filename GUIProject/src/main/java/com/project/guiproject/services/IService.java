@@ -8,7 +8,9 @@ public interface IService<T> {
 
     public void delete(int id) throws SQLException;
 
-    public void update(T t) throws SQLException;
+    public default void update(T t) throws SQLException {
+
+    }
 
     public List<T> get() throws SQLException;
 

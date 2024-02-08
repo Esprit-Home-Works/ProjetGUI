@@ -1,18 +1,22 @@
 package com.project.guiproject.services;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
+
+
+
 
 import com.project.guiproject.models.Match;
-import com.project.guiproject.utils.MyDataBase;
 
-public class MatchService implements IService<Match> {
+import java.util.List;
+
+public interface MatchService {
+    Match createMatch(int duration, String name, String description, String code);
+    Match getMatchById(int matchId);
+    List<Match> getAllMatches();
+    // Add other methods as needed for managing matches
+}
+
+
+/*public class MatchService   {
 
     private Connection connection;
 
@@ -30,7 +34,7 @@ public class MatchService implements IService<Match> {
     }
 
     @Override
-    public void update(Match match) throws SQLException {
+    public void update(MatchService match) throws SQLException {
         String req = "UPDATE matches SET duration = ?,name = ?, description = ? ,code = ?, startDate = ?, endDate = ? WHERE id = ?";
 
         PreparedStatement PS = connection.prepareStatement(req);
@@ -56,7 +60,6 @@ public class MatchService implements IService<Match> {
             System.out.println(e.getMessage());
         }
     }
-
     @Override
     public Match getById(int id) throws SQLException {
         String query = "SELECT * FROM matches WHERE id = ?";
@@ -72,14 +75,14 @@ public class MatchService implements IService<Match> {
     }
 
     @Override
-    public List<Match> get() throws SQLException {
+    public List<MatchService> get() throws SQLException {
         List<Match> matches = new ArrayList<>();
         String query = "SELECT * FROM matches";
         PreparedStatement PS = connection.prepareStatement(query);
         PS.executeQuery();
         ResultSet RS = PS.getResultSet();
         while (RS.next()) {
-            Match match = new Match(RS.getInt("id"), RS.getInt("duration"), RS.getString("name"),
+            Match match = new MatchService(RS.getInt("id"), RS.getInt("duration"), RS.getString("name"),
                     RS.getString("description"), RS.getString("code"), RS.getDate("startDate"),
                     RS.getDate("endDate"));
             matches.add(match);
@@ -87,4 +90,5 @@ public class MatchService implements IService<Match> {
         return matches;
     }
 
-}
+    */
+

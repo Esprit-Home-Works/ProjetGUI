@@ -1,9 +1,17 @@
 package com.project.guiproject.models;
 
-import java.util.Date;
-import java.util.List;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+import javax.persistence.Entity;
+
+@Entity
+@Table(name = "tournaments")
 public class TournamentTeam {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int tournamentId;
     private int teamId;

@@ -1,6 +1,16 @@
 package com.project.guiproject.models;
 
+
+import jakarta.persistence.*;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table(name = "users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     // User fields
     private int id;
     private String username;

@@ -1,15 +1,23 @@
 package com.project.guiproject.models;
 
-import java.util.Date;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+import javax.persistence.Entity;
+
+@Entity
+@Table(name = "teams")
 public class Team {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int teamLeaderId;
     private String description;
     private String logo;
 
     public Team() {
-
     }
 
     public Team(int teamLeaderId, String description, String logo) {
@@ -24,6 +32,7 @@ public class Team {
         this.description = description;
         this.logo = logo;
     }
+
 
 
 

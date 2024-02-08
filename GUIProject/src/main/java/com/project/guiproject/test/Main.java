@@ -1,41 +1,41 @@
 package com.project.guiproject.test;
 
-import java.sql.Date;
-
 import com.project.guiproject.models.Match;
 import com.project.guiproject.models.User;
 import com.project.guiproject.services.MatchService;
+import com.project.guiproject.services.MatchServiceImpl;
 import com.project.guiproject.services.UserService;
-import com.project.guiproject.utils.MyDataBase;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        MyDataBase myDataBase = new MyDataBase();
-        // MatchService matchService = new MatchService();
-        UserService user = new UserService();
+
+        // Instantiate services
+        UserService userService = new UserServiceImpl();
+        MatchService matchService = new MatchServiceImpl();
+
         try {
-      //      user.add(new User(1, "root", "",
-        //            "sedki99bani@gmail.com"));
-            // new Date(2021, 1, 1)));
-            // matchService.add(new Match(180, "match 2", "test Match",
-            // "MT_001", new Date(2021, 1, 1),
-            // new Date(2021, 1, 1)));
-            // matchService.update(new Match(1, 180, "match Updated", "test Match",
-            // "MT_001", new Date(2021, 1, 1),
-            // new Date(2021, 1, 1)));
-            // matchService.delete(1);
-            // Match mt = matchService.getById(2);
-            // System.out.println(mt);
+            // Register a new user
+            User newUser = userService.registerUser("testUser", "password123", "test@example.com");
+            System.out.println("Registered user: " + newUser);
 
-            // System.out.println("the list of matches: ");
+            // Create a new match
+            Match newMatch = matchService.createMatch(180, "testMatch", "Description", "MT_001");
+            System.out.println("Created match: " + newMatch);
 
-            // matchService.get().forEach(match -> {
-            // System.out.println(match);
-            // });
+            // Get a match by ID
+            Match matchById = matchService.getMatchById(1);
+            System.out.println("Match by ID: " + matchById);
+
+            // Get all matches
+            System.out.println("All matches:");
+            matchService.getAllMatches().forEach(System.out::println);
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
+    }
+
+    private static class UserServiceImpl extends UserService {
     }
 }

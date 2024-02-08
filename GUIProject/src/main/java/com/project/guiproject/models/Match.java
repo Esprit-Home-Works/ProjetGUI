@@ -1,21 +1,32 @@
 package com.project.guiproject.models;
 
+import javax.persistence.*;
 import java.util.Date;
 
-public class Match {
-    private int id, duration;
-    private String name, description, code;
-    private Date startDate, endDate;
+/**
+ * Entity implementation class for Entity: Person
+ *
+ */
 
-    public Match(int id, int duration, String name, String description, String code, Date startDate, Date endDate) {
-        this.id = id;
-        this.duration = duration;
-        this.name = name;
-        this.description = description;
-        this.code = code;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
+@Entity
+@Table(name = "matches")
+public class Match {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private int duration;
+    private String name;
+    private String description;
+    private String code;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date startDate;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date endDate;
+
+
 
     public Match(int duration, String name, String description, String code, Date startDate, Date endDate) {
         this.duration = duration;
@@ -25,6 +36,10 @@ public class Match {
         this.startDate = startDate;
         this.endDate = endDate;
     }
+
+    public Match(int duration, int i, String dummyMatch, String thisIsADummyMatch, String abc123, Date endDate, Date date) {
+    }
+
 
     public int getDuration() {
         return duration;
