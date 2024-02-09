@@ -5,6 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 
 @Entity
@@ -43,4 +44,23 @@ public class Player extends User {
 
     private String getUserId() {
     }*/
+
+
+    public interface PlayerService {
+        // Method to add a new player
+        Player addPlayer(Player player);
+
+        // Method to update an existing player
+        Player updatePlayer(Player player);
+
+        // Method to delete a player by ID
+        void deletePlayer(int playerId);
+
+        // Method to get a player by ID
+        Player getPlayerById(int playerId);
+
+        // Method to get all players
+        List<Player> getAllPlayers();
+    }
+
 }

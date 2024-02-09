@@ -10,7 +10,7 @@ import java.util.List;
 
 public class UserService implements IService<User> {
 
-    private Connection connection;
+    private final Connection connection;
 
     public UserService() {
         connection = MyDataBase.getInstace().getConnection();

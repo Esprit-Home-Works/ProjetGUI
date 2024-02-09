@@ -33,9 +33,6 @@ public class Team {
         this.logo = logo;
     }
 
-
-
-
     public int getId() {
         return id;
     }

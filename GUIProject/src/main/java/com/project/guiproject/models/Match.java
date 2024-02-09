@@ -3,14 +3,10 @@ package com.project.guiproject.models;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Entity implementation class for Entity: Person
- *
- */
-
 @Entity
 @Table(name = "matches")
 public class Match {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -26,8 +22,6 @@ public class Match {
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
 
-
-
     public Match(int duration, String name, String description, String code, Date startDate, Date endDate) {
         this.duration = duration;
         this.name = name;
@@ -36,10 +30,8 @@ public class Match {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-
-    public Match(int duration, int i, String dummyMatch, String thisIsADummyMatch, String abc123, Date endDate, Date date) {
+    public Match(int duration, int i, String dummyMatch, String abc123, Date endDate, Date date) {
     }
-
 
     public int getDuration() {
         return duration;
@@ -102,5 +94,4 @@ public class Match {
         return "Match [duration=" + duration + ", name=" + name + ", description=" + description + ", code=" + code
                 + ", startDate=" + startDate + ", endDate=" + endDate + "]";
     }
-
 }
