@@ -1,18 +1,19 @@
 package com.project.guiproject.services;
 
-import com.project.guiproject.models.Match;
-
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
-public interface MatchService {
-    Match createMatch(int duration, String name, String description, String code);
-    Match getMatchById(int matchId);
-    List<Match> getAllMatches();
-    // Add other methods as needed for managing matches
-}
+import com.project.guiproject.models.Match;
+import com.project.guiproject.utils.MyDataBase;
+import javafx.collections.ObservableList;
 
-
-/*public class MatchService   {
+public class MatchService implements IService<Match> {
 
     private Connection connection;
 
@@ -30,7 +31,7 @@ public interface MatchService {
     }
 
     @Override
-    public void update(MatchService match) throws SQLException {
+    public void update(Match match) throws SQLException {
         String req = "UPDATE matches SET duration = ?,name = ?, description = ? ,code = ?, startDate = ?, endDate = ? WHERE id = ?";
 
         PreparedStatement PS = connection.prepareStatement(req);
@@ -56,6 +57,7 @@ public interface MatchService {
             System.out.println(e.getMessage());
         }
     }
+
     @Override
     public Match getById(int id) throws SQLException {
         String query = "SELECT * FROM matches WHERE id = ?";
@@ -71,14 +73,14 @@ public interface MatchService {
     }
 
     @Override
-    public List<MatchService> get() throws SQLException {
+    public List<Match> get() throws SQLException {
         List<Match> matches = new ArrayList<>();
         String query = "SELECT * FROM matches";
         PreparedStatement PS = connection.prepareStatement(query);
         PS.executeQuery();
         ResultSet RS = PS.getResultSet();
         while (RS.next()) {
-            Match match = new MatchService(RS.getInt("id"), RS.getInt("duration"), RS.getString("name"),
+            Match match = new Match(RS.getInt("id"), RS.getInt("duration"), RS.getString("name"),
                     RS.getString("description"), RS.getString("code"), RS.getDate("startDate"),
                     RS.getDate("endDate"));
             matches.add(match);
@@ -86,5 +88,16 @@ public interface MatchService {
         return matches;
     }
 
-    */
-
+    public ObservableList<Match> filter(String text, String text1) {
+        try{
+            String query = "select * from matches where name like ? and code like ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, "%" + text + "%");
+            ps.setString(2, "%" + text1 + "%");
+            ResultSet rs = ps.executeQuery();
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+}

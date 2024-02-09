@@ -33,6 +33,9 @@ public class Match {
     public Match(int duration, int i, String dummyMatch, String abc123, Date endDate, Date date) {
     }
 
+    public Match() {
+    }
+
     public int getDuration() {
         return duration;
     }

@@ -1,40 +1,72 @@
 package com.project.guiproject.test;
+
+import java.io.IOException;
+import java.sql.Date;
+import java.util.Objects;
+
+import com.project.guiproject.migration.Init;
 import com.project.guiproject.models.Match;
 import com.project.guiproject.models.User;
 import com.project.guiproject.services.MatchService;
-import com.project.guiproject.services.MatchServiceImpl;
 import com.project.guiproject.services.UserService;
+import com.project.guiproject.utils.MyDataBase;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
-public class Main {
+/*public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World!");
-
-        // Instantiate services
-        UserService userService = new UserServiceImpl();
-        MatchService matchService = new MatchServiceImpl();
-
+        MyDataBase myDataBase = new MyDataBase();
+        // MatchService matchService = new MatchService();
+        UserService user = new UserService();
+        Init initDb = new Init();
         try {
-            // Register a new user
-            User newUser = userService.registerUser("testUser", "password123", "test@example.com");
-            System.out.println("Registered user: " + newUser);
+            initDb.run(true);
+            // new Date(2021, 1, 1)));
+            // matchService.add(new Match(180, "match 2", "test Match",
+            // "MT_001", new Date(2021, 1, 1),
+            // new Date(2021, 1, 1)));
+            // matchService.update(new Match(1, 180, "match Updated", "test Match",
+            // "MT_001", new Date(2021, 1, 1),
+            // new Date(2021, 1, 1)));
+            // matchService.delete(1);
+            // Match mt = matchService.getById(2);
+            // System.out.println(mt);
 
-            // Create a new match
-            Match newMatch = matchService.createMatch(180, "testMatch", "Description", "MT_001");
-            System.out.println("Created match: " + newMatch);
+            // System.out.println("the list of matches: ");
 
-            // Get a match by ID
-            Match matchById = matchService.getMatchById(1);
-            System.out.println("Match by ID: " + matchById);
-
-            // Get all matches
-            System.out.println("All matches:");
-            matchService.getAllMatches().forEach(System.out::println);
+            // matchService.get().forEach(match -> {
+            // System.out.println(match);
+            // });
 
         } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
+}*/
+public class Main extends Application {
 
-    private static class UserServiceImpl extends UserService {
+    Init initDb = new Init();
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        try {
+            initDb.run(true);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Match/ManageMatches.fxml")));
+            primaryStage.setTitle("Systeme de gestion des matches");
+            primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        launch();
     }
 }
+

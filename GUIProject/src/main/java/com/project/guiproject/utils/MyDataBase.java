@@ -9,7 +9,7 @@ public class MyDataBase {
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    private Connection connection;
+    private static Connection connection;
 
     public MyDataBase() {
         try {
@@ -29,7 +29,7 @@ public class MyDataBase {
         return instance;
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 
