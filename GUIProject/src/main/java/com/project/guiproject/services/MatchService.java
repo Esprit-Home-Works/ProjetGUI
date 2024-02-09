@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.project.guiproject.models.Match;
 import com.project.guiproject.utils.MyDataBase;
+import javafx.collections.ObservableList;
 
 public class MatchService implements IService<Match> {
 
@@ -87,4 +88,16 @@ public class MatchService implements IService<Match> {
         return matches;
     }
 
+    public ObservableList<Match> filter(String text, String text1) {
+        try{
+            String query = "select * from matches where name like ? and code like ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, "%" + text + "%");
+            ps.setString(2, "%" + text1 + "%");
+            ResultSet rs = ps.executeQuery();
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
