@@ -1,6 +1,4 @@
 package com.project.guiproject.models;
-
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 
@@ -14,7 +12,7 @@ public class Player extends User {
     @Column(name = "team_id")
     private int teamId;
 
-    public Player() {
+    public Player(String playerName, int playerAge, String playerPosition) {
     }
 
     public Player(int userId, int teamId) {

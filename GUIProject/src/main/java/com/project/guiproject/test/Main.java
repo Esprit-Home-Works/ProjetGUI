@@ -1,6 +1,10 @@
 package com.project.guiproject.test;
 
+import com.project.guiproject.controllers.TeamPlayers.AddPlayerController;
+import com.project.guiproject.controllers.TeamPlayers.AddTeamController;
 import com.project.guiproject.migration.Init;
+import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.TableCreator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,39 +13,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.sql.Connection;
 
-/*public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-        MyDataBase myDataBase = new MyDataBase();
-        // MatchService matchService = new MatchService();
-        UserService user = new UserService();
-        Init initDb = new Init();
-        try {
-            initDb.run(true);
-            // new Date(2021, 1, 1)));
-            // matchService.add(new Match(180, "match 2", "test Match",
-            // "MT_001", new Date(2021, 1, 1),
-            // new Date(2021, 1, 1)));
-            // matchService.update(new Match(1, 180, "match Updated", "test Match",
-            // "MT_001", new Date(2021, 1, 1),
-            // new Date(2021, 1, 1)));
-            // matchService.delete(1);
-            // Match mt = matchService.getById(2);
-            // System.out.println(mt);
-
-            // System.out.println("the list of matches: ");
-
-            // matchService.get().forEach(match -> {
-            // System.out.println(match);
-            // });
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-}*/
 public class Main extends Application {
 
     Init initDb = new Init();
@@ -50,17 +23,53 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         try {
             initDb.run(true);
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ManageMatches.fxml")));
+
+            FXMLLoader manageMatchesLoader = new FXMLLoader(getClass().getResource("/ManageMatches.fxml"));
+            Parent manageMatchesRoot = manageMatchesLoader.load();
+            Scene manageMatchesScene = new Scene(manageMatchesRoot);
+            manageMatchesScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm()); // Add CSS if needed
+
+            FXMLLoader addPlayerLoader = new FXMLLoader(getClass().getResource("/AddPlayer.fxml"));
+            Parent addPlayerRoot = addPlayerLoader.load();
+            AddPlayerController addPlayerController = addPlayerLoader.getController(); // Get the controller to interact with the interface
+
+            FXMLLoader addTeamLoader = new FXMLLoader(getClass().getResource("/AddTeam.fxml"));
+            Parent addTeamRoot = addTeamLoader.load();
+            AddTeamController addTeamController = addTeamLoader.getController(); // Get the controller to interact with the interface
+
             primaryStage.setTitle("Systeme de gestion des matches");
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
-            primaryStage.setScene(new Scene(root));
+
+            // Initially show the Manage Matches scene
+            primaryStage.setScene(manageMatchesScene);
             primaryStage.show();
+
+            // Example of switching scenes programmatically
+            // addPlayerButton.setOnAction(event -> primaryStage.setScene(new Scene(addPlayerRoot)));
+            // addTeamButton.setOnAction(event -> primaryStage.setScene(new Scene(addTeamRoot)));
+
+            // Example of passing data between scenes
+            // addPlayerController.setPlayerService(playerService);
+            // addTeamController.setTeamService(teamService);
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle FXML loading error
         } catch (Exception e) {
             e.printStackTrace();
+            // Handle other errors
+        }
+
+        try {
+            Connection connection = MyDataBase.getInstace().getConnection();
+            TableCreator tableCreator = new TableCreator(connection);
+            tableCreator.createTables();
+            System.out.println("Tables created successfully.");
+        } catch (Exception e) {
+            System.out.println("Error creating tables: " + e.getMessage());
         }
     }
+
     public static void main(String[] args) {
         launch();
     }
 }
-

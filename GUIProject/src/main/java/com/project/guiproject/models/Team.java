@@ -17,7 +17,7 @@ public class Team {
     private String description;
     private String logo;
 
-    public Team() {
+    public Team(String teamName, String teamLocation) {
     }
 
     public Team(int teamLeaderId, String description, String logo) {

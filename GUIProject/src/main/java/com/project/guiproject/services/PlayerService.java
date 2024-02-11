@@ -1,18 +1,15 @@
 package com.project.guiproject.services;
 
-
-
 import com.project.guiproject.models.Player;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-class PlayerServiceImpl implements Player.PlayerService {
+public class PlayerService implements Player.PlayerService {
 
     @PersistenceContext
     private EntityManager entityManager;
-
 
     @Override
     public Player addPlayer(Player player) {
@@ -20,12 +17,10 @@ class PlayerServiceImpl implements Player.PlayerService {
         return player;
     }
 
-
     @Override
     public Player updatePlayer(Player player) {
         return entityManager.merge(player);
     }
-
 
     @Override
     public void deletePlayer(int playerId) {

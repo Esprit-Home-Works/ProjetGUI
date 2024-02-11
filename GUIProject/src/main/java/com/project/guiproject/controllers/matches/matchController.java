@@ -133,8 +133,8 @@ public class matchController implements Initializable {
         Match temp = selectionModel.getSelectedItem();
         if (temp != null) {
             selectedItem = temp;
-            //deleteButton.setVisible(true);
-            //updateButton.setVisible(true);
+            deleteButton.setVisible(true);
+            updateButton.setVisible(true);
         }
     }
 
