@@ -3,6 +3,7 @@ package com.project.guiproject.controllers.matches;
 import com.project.guiproject.helpers.NavigationHelpers;
 import com.project.guiproject.models.Match;
 import com.project.guiproject.services.MatchService;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,10 +18,26 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class matchController implements Initializable {
-    MatchService matchService = new MatchService();
+    MatchService matchService = new MatchService() {
+        @Override
+        public Match createMatch(int duration, String name, String description, String code) {
+            return null;
+        }
+
+        @Override
+        public Match getMatchById(int matchId) {
+            return null;
+        }
+
+        @Override
+        public List<Match> getAllMatches() {
+            return null;
+        }
+    };
 
     Match selectedItem;
 
@@ -84,8 +101,8 @@ public class matchController implements Initializable {
 
     private void initFilters() {
         // add listener to the filter fields
-        idFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
-        nomFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
+     //   idFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
+       // nomFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
     }
 
     public void filter() {
@@ -94,12 +111,12 @@ public class matchController implements Initializable {
     }
 
     private void initButtons() {
-        deleteButton.setVisible(false);
-        updateButton.setVisible(false);
+        //deleteButton.setVisible(false);
+        //updateButton.setVisible(false);
     }
 
     private void loadMatches() throws SQLException {
-        data = (ObservableList<Match>) matchService.get();
+        data = FXCollections.observableArrayList(matchService.get());
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         code.setCellValueFactory(new PropertyValueFactory<>("code"));
@@ -116,8 +133,8 @@ public class matchController implements Initializable {
         Match temp = selectionModel.getSelectedItem();
         if (temp != null) {
             selectedItem = temp;
-            deleteButton.setVisible(true);
-            updateButton.setVisible(true);
+            //deleteButton.setVisible(true);
+            //updateButton.setVisible(true);
         }
     }
 

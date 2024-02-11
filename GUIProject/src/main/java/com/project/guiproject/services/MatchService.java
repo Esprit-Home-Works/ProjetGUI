@@ -1,21 +1,16 @@
 package com.project.guiproject.services;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.project.guiproject.models.Match;
 import com.project.guiproject.utils.MyDataBase;
 import javafx.collections.ObservableList;
 
-public class MatchService implements IService<Match> {
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-    private Connection connection;
+public abstract class MatchService implements IService<Match> {
+
+    private final Connection connection;
 
     public MatchService() {
         connection = MyDataBase.getInstace().getConnection();
@@ -23,11 +18,15 @@ public class MatchService implements IService<Match> {
 
     @Override
     public void add(Match match) throws SQLException {
-        String req = "INSERT INTO matches (duration, name, description, code, startDate, endDate) VALUES ('"
-                + match.getDuration() + "', '" + match.getName() + "', '" + match.getDescription() + "', '"
-                + match.getCode() + "', '" + match.getStartDate() + "', '" + match.getEndDate() + "')";
-        Statement statement = connection.createStatement();
-        statement.executeUpdate(req);
+        String req = "INSERT INTO matches (duration, name, description, code, startDate, endDate) VALUES(?,?,?,?,?,?)";
+        PreparedStatement PS = connection.prepareStatement(req);
+        PS.setInt(1, match.getDuration());
+        PS.setString(2, match.getName());
+        PS.setString(3, match.getDescription());
+        PS.setString(4, match.getCode());
+        PS.setDate(5,  match.getStartDate());
+        PS.setDate(6,  match.getEndDate());
+        PS.executeUpdate();
     }
 
     @Override
@@ -100,4 +99,10 @@ public class MatchService implements IService<Match> {
             return null;
         }
     }
+
+    public abstract Match createMatch(int duration, String name, String description, String code);
+
+    public abstract Match getMatchById(int matchId);
+
+    public abstract List<Match> getAllMatches();
 }

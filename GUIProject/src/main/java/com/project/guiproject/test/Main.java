@@ -1,21 +1,15 @@
 package com.project.guiproject.test;
 
-import java.io.IOException;
-import java.sql.Date;
-import java.util.Objects;
-
 import com.project.guiproject.migration.Init;
-import com.project.guiproject.models.Match;
-import com.project.guiproject.models.User;
-import com.project.guiproject.services.MatchService;
-import com.project.guiproject.services.UserService;
-import com.project.guiproject.utils.MyDataBase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.Objects;
 
 /*public class Main {
     public static void main(String[] args) {
@@ -56,7 +50,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         try {
             initDb.run(true);
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Match/ManageMatches.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/ManageMatches.fxml")));
             primaryStage.setTitle("Systeme de gestion des matches");
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
             primaryStage.setScene(new Scene(root));

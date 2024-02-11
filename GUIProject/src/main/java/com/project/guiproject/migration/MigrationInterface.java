@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public interface MigrationInterface {
-    Connection connection = MyDataBase.getConnection();
+    Connection connection = MyDataBase.getInstace().getConnection();
 
 
     void migrate(Boolean remove) throws SQLException;

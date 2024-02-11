@@ -1,14 +1,13 @@
 package com.project.guiproject.models;
 
-import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
-@Entity
-@Table(name = "matches")
+//@Entity
+//@Table(name = "matches")
 public class Match {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @Id
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private int duration;
@@ -16,11 +15,22 @@ public class Match {
     private String description;
     private String code;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
+
+
+    public Match(int id, int duration, String name, String description, String code, Date startDate, Date endDate) {
+        this.id = id;
+        this.duration = duration;
+        this.name = name;
+        this.description = description;
+        this.code = code;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public Match(int duration, String name, String description, String code, Date startDate, Date endDate) {
         this.duration = duration;
@@ -29,11 +39,6 @@ public class Match {
         this.code = code;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-    public Match(int duration, int i, String dummyMatch, String abc123, Date endDate, Date date) {
-    }
-
-    public Match() {
     }
 
     public int getDuration() {

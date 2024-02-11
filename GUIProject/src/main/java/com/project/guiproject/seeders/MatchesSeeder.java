@@ -4,9 +4,26 @@ import com.project.guiproject.models.Match;
 import com.project.guiproject.services.MatchService;
 
 import java.sql.Date;
+import java.util.List;
+
 public class MatchesSeeder extends Seeders{
 
-    MatchService matchService = new MatchService();
+    MatchService matchService = new MatchService() {
+        @Override
+        public Match createMatch(int duration, String name, String description, String code) {
+            return null;
+        }
+
+        @Override
+        public Match getMatchById(int matchId) {
+            return null;
+        }
+
+        @Override
+        public List<Match> getAllMatches() {
+            return null;
+        }
+    };
 
     @Override
     public void seed() {
