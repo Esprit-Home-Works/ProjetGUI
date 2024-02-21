@@ -3,20 +3,25 @@ package com.project.guiproject.controllers.matches;
 import com.project.guiproject.helpers.NavigationHelpers;
 import com.project.guiproject.models.Match;
 import com.project.guiproject.services.MatchService;
+import com.project.guiproject.test.Storage;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class matchController implements Initializable {
@@ -53,8 +58,8 @@ public class matchController implements Initializable {
     @FXML
     public Button addButton;
 
-    @FXML
-    public Button homeButton;
+    /*@FXML
+    public Button homeButton;*/
 
     @FXML
     public TextField idFilter;
@@ -67,7 +72,7 @@ public class matchController implements Initializable {
 
     NavigationHelpers nh = new NavigationHelpers();
 
-    private ObservableList<Match> data;
+    private ArrayList<Match> data;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -89,8 +94,16 @@ public class matchController implements Initializable {
     }
 
     public void filter() {
-        data = matchService.filter(idFilter.getText(), nomFilter.getText());
-        MatchesList.setItems(data);
+        data = matchService.filter(nomFilter.getText() , idFilter.getText());
+        MatchesList.setItems(FXCollections.observableArrayList(data));
+    }
+    @FXML
+    public void clearIdFilter() {
+        idFilter.clear();
+    }
+    @FXML
+    public void clearNomFilter() {
+        nomFilter.clear();
     }
 
     private void initButtons() {
@@ -99,14 +112,14 @@ public class matchController implements Initializable {
     }
 
     private void loadMatches() throws SQLException {
-        data = (ObservableList<Match>) matchService.get();
+        data = (ArrayList<Match>) matchService.get();
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         code.setCellValueFactory(new PropertyValueFactory<>("code"));
         duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
         startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         endDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
-        MatchesList.setItems(data);
+        MatchesList.setItems(FXCollections.observableArrayList(data));
         selectionModel = MatchesList.getSelectionModel();
     }
 
@@ -118,6 +131,48 @@ public class matchController implements Initializable {
             selectedItem = temp;
             deleteButton.setVisible(true);
             updateButton.setVisible(true);
+        }
+    }
+    @FXML
+    public void deleteButtonClicked(ActionEvent ignoredEv) {
+        if (selectedItem != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Supprimer classe");
+            alert.setContentText("Êtes-vous sûr de vouloir supprimer cette classe ("+ selectedItem.getName() + ") ?");
+            alert.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
+                try {
+                    matchService.delete(selectedItem.getId());
+                    loadMatches();
+                    selectionModel.clearSelection();
+                    deleteButton.setVisible(false);
+                    updateButton.setVisible(false);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+    @FXML
+    public void updateButtonClicked(ActionEvent ignoredEv) {
+        if (selectedItem != null) {
+            Pane ctrl;
+            try {
+                Storage.Match.code = selectedItem.getCode();
+                ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertMatches.fxml")));
+                nh.navigate(addButton, "Modifier classe", ctrl);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    @FXML
+    public void addButtonClicked(ActionEvent ignoredEv) {
+        Pane ctrl;
+        try {
+            ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertMatches.fxml")));
+            nh.navigate(addButton, "Ajouter classe", ctrl);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

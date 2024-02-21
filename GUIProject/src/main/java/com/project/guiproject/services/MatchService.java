@@ -11,7 +11,10 @@ import java.util.List;
 
 import com.project.guiproject.models.Match;
 import com.project.guiproject.utils.MyDataBase;
-import javafx.collections.ObservableList;
+import com.resend.Resend;
+import com.resend.core.exception.ResendException;
+import com.resend.services.emails.model.SendEmailRequest;
+import com.resend.services.emails.model.SendEmailResponse;
 
 public class MatchService implements IService<Match> {
 
@@ -20,7 +23,6 @@ public class MatchService implements IService<Match> {
     public MatchService() {
         connection = MyDataBase.getInstace().getConnection();
     }
-
     @Override
     public void add(Match match) throws SQLException {
         String req = "INSERT INTO matches (duration, name, description, code, startDate, endDate) VALUES ('"
@@ -28,6 +30,7 @@ public class MatchService implements IService<Match> {
                 + match.getCode() + "', '" + match.getStartDate() + "', '" + match.getEndDate() + "')";
         Statement statement = connection.createStatement();
         statement.executeUpdate(req);
+
     }
 
     @Override
@@ -71,6 +74,18 @@ public class MatchService implements IService<Match> {
                         PS.getResultSet().getDate("endDate"))
                 : null;
     }
+    public Match getByCode(String code) throws SQLException {
+        String query = "SELECT * FROM matches WHERE code = ?";
+        PreparedStatement PS = connection.prepareStatement(query);
+        PS.setString(1, code);
+        PS.executeQuery();
+        return PS.getResultSet().next()
+                ? new Match(PS.getResultSet().getInt("id"), PS.getResultSet().getInt("duration"),
+                        PS.getResultSet().getString("name"), PS.getResultSet().getString("description"),
+                        PS.getResultSet().getString("code"), PS.getResultSet().getDate("startDate"),
+                        PS.getResultSet().getDate("endDate"))
+                : null;
+    }
 
     @Override
     public List<Match> get() throws SQLException {
@@ -88,16 +103,27 @@ public class MatchService implements IService<Match> {
         return matches;
     }
 
-    public ObservableList<Match> filter(String text, String text1) {
+    public ArrayList<Match> filter(String text, String text1) {
         try{
             String query = "select * from matches where name like ? and code like ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, "%" + text + "%");
             ps.setString(2, "%" + text1 + "%");
             ResultSet rs = ps.executeQuery();
-            return null;
+            return getMatches(rs);
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public  ArrayList<Match> getMatches(ResultSet rs) throws SQLException {
+        ArrayList<Match> matches = new ArrayList<>();
+        while (rs.next()) {
+            Match match = new Match(rs.getInt("id"), rs.getInt("duration"), rs.getString("name"),
+                    rs.getString("description"), rs.getString("code"), rs.getDate("startDate"),
+                    rs.getDate("endDate"));
+            matches.add(match);
+        }
+        return matches;
     }
 }
