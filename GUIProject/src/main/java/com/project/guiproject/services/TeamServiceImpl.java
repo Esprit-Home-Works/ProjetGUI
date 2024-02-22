@@ -4,24 +4,28 @@ import com.project.guiproject.models.Team;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.sql.Connection;
 import java.util.List;
 
-public class TeamServiceImpl implements TeamService {
+public class TeamServiceImpl extends TeamService {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-
-    @Override
-    public Team addTeam(Team team) {
-        entityManager.persist(team);
-        return team;
+    public TeamServiceImpl(Connection connection) {
+        super(connection);
     }
 
 
     @Override
-    public Team updateTeam(Team team) {
-        return entityManager.merge(team);
+    public void addTeam(Team team) {
+        entityManager.persist(team);
+    }
+
+
+    @Override
+    public void updateTeam(Team team) {
+         entityManager.merge(team);
     }
 
 

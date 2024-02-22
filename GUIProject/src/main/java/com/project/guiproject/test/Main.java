@@ -24,7 +24,7 @@ public class Main extends Application {
         try {
             initDb.run(true);
 
-            FXMLLoader manageMatchesLoader = new FXMLLoader(getClass().getResource("/ManageMatches.fxml"));
+            FXMLLoader manageMatchesLoader = new FXMLLoader(getClass().getResource("/AddTeam.fxml"));
             Parent manageMatchesRoot = manageMatchesLoader.load();
             Scene manageMatchesScene = new Scene(manageMatchesRoot);
             manageMatchesScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm()); // Add CSS if needed
@@ -40,17 +40,11 @@ public class Main extends Application {
             primaryStage.setTitle("Systeme de gestion des matches");
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
 
-            // Initially show the Manage Matches scene
+
             primaryStage.setScene(manageMatchesScene);
             primaryStage.show();
 
-            // Example of switching scenes programmatically
-            // addPlayerButton.setOnAction(event -> primaryStage.setScene(new Scene(addPlayerRoot)));
-            // addTeamButton.setOnAction(event -> primaryStage.setScene(new Scene(addTeamRoot)));
 
-            // Example of passing data between scenes
-            // addPlayerController.setPlayerService(playerService);
-            // addTeamController.setTeamService(teamService);
         } catch (IOException e) {
             e.printStackTrace();
             // Handle FXML loading error

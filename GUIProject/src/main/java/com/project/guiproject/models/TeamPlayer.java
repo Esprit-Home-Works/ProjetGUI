@@ -6,7 +6,7 @@ public class TeamPlayer {
     private int playerId;
 
     public TeamPlayer() {
-        // Constructeur par défaut
+
     }
 
     public TeamPlayer(int teamId, int playerId) {
@@ -20,7 +20,7 @@ public class TeamPlayer {
         this.playerId = playerId;
     }
 
-    // Ajouter les getters et setters nécessaires
+
 
     public int getId() {
         return id;
@@ -50,4 +50,5 @@ public class TeamPlayer {
     public String toString() {
         return "TeamPlayer [id=" + id + ", teamId=" + teamId + ", playerId=" + playerId + "]";
     }
+
 }

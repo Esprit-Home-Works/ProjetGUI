@@ -8,31 +8,11 @@ import jakarta.persistence.Table;
 import javax.persistence.Entity;
 
 @Entity
-@Table(name = "teams")
+@Table(name = "team")
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int teamLeaderId;
-    private String description;
-    private String logo;
-
-    public Team(String teamName, String teamLocation) {
-    }
-
-    public Team(int teamLeaderId, String description, String logo) {
-        this.teamLeaderId = teamLeaderId;
-        this.description = description;
-        this.logo = logo;
-    }
-
-    public Team(int id, int teamLeaderId, String description, String logo) {
-        this.id = id;
-        this.teamLeaderId = teamLeaderId;
-        this.description = description;
-        this.logo = logo;
-    }
-
     public int getId() {
         return id;
     }
@@ -41,32 +21,61 @@ public class Team {
         this.id = id;
     }
 
-    public int getTeamLeaderId() {
-        return teamLeaderId;
+    private String teamName;
+
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void setTeamLeaderId(int teamLeaderId) {
-        this.teamLeaderId = teamLeaderId;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
-    public String getDescription() {
-        return description;
+    private String teamDescription;
+    public String getTeamDescription() {
+        return teamDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setTeamDescription(String teamDescription) {
+        this.teamDescription = teamDescription;
     }
 
-    public String getLogo() {
-        return logo;
+    private String teamlocation;
+    public void setTeamlocation(String teamlocation) {
+        this.teamlocation = teamlocation;
     }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
+    public String getTeamlocation() {
+        return teamlocation;
+    }
+
+    public Team() {
+
+    }
+
+    public Team(int id, String teamName, String teamDescription, String teamLocation) {
+        this.id = id;
+        this.teamName = teamName;
+        this.teamDescription = teamDescription;
+        this.teamlocation = teamLocation;
+    }
+
+    public Team(String teamName, String teamDescription, String teamLocation) {
+        this.teamName = teamName;
+        this.teamDescription = teamDescription;
+        this.teamlocation = teamLocation;
+    }
+
+
+    public Team(int id, String teamDescription) {
+        this.id = id;
+        this.teamDescription = teamDescription;
     }
 
     @Override
     public String toString() {
-        return "Team [id=" + id + ", teamLeaderId=" + teamLeaderId + ", description=" + description + ", logo=" + logo + "]";
+        return "Team [id=" + id + ", teamName=" + teamName + ", teamDescription=" + teamDescription + ", teamlocation=" + teamlocation + "]";
     }
+
+
 }

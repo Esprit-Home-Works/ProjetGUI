@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class MyDataBase {
     private static MyDataBase instance;
-    private static final String URL = "jdbc:mysql://localhost:3306/projetgui";
+    private static final String URL = "jdbc:mysql://localhost:3306/projetgui2";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
