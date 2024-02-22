@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.project.guiproject.models.Match;
 import com.project.guiproject.models.User;
 import com.project.guiproject.utils.MyDataBase;
 
@@ -66,6 +67,8 @@ public class UserService implements IService<User> {
 
     }
 
+
+
     @Override
     public List<User> get() throws SQLException {
         List<User> User = new ArrayList<>();
@@ -101,5 +104,7 @@ public class UserService implements IService<User> {
         User user = new User(username, password, email);
         add(user);
     }
+
+
 
 }
