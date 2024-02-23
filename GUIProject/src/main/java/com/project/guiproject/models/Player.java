@@ -1,64 +1,72 @@
 package com.project.guiproject.models;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
 
-import javax.persistence.Entity;
-import java.util.List;
-
+import javax.persistence.*;
 
 @Entity
 @Table(name = "players")
-public class Player extends User {
-    @Column(name = "team_id")
-    private int teamId;
+public class Player {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-    public Player(String playerName, int playerAge, String playerPosition) {
+    // Getters and setters
+    public int getId() {
+        return id;
     }
 
-    public Player(int userId, int teamId) {
-        super();
-        this.teamId = teamId;
+    public void setId(int id) {
+        this.id = id;
+    }
+    private String playerName;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public Player(int playerId, String username, String password, String email, int teamId) {
-        super(playerId, username, password, email);
-        this.teamId = teamId;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+    private int age;
+
+    public int getAge() {
+        return age;
     }
 
-
-    public int getTeamId() {
-        return teamId;
+    public void setAge(int age) {
+        this.age = age;
+    }
+    private String position;
+    public String getPosition() {
+        return position;
     }
 
-    public void setTeamId(int teamId) {
-        this.teamId = teamId;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-   /* @Override
-   public String toString() {
-
-        return "Player [userId=" + getUserId() + ", teamId=" + teamId + ", username=" + getUsername() + ", password=" + getPassword() + ", email=" + getEmail() + "]";
+    // Constructors
+    public Player() {
     }
 
-    private String getUserId() {
-    }*/
-
-
-    public interface PlayerService {
-        // Method to add a new player
-        Player addPlayer(Player player);
-
-        // Method to update an existing player
-        Player updatePlayer(Player player);
-
-        // Method to delete a player by ID
-        void deletePlayer(int playerId);
-
-        // Method to get a player by ID
-        Player getPlayerById(int playerId);
-
-        // Method to get all players
-        List<Player> getAllPlayers();
+    public Player(String playerName, int age, String position) {
+        this.playerName = playerName;
+        this.age = age;
+        this.position = position;
     }
 
+    public Player(int id, String playerName, int age, String position) {
+        this.id = id;
+        this.playerName = playerName;
+        this.age = age;
+        this.position = position;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "id=" + id +
+                ", playerName='" + playerName + '\'' +
+                ", age=" + age +
+                ", position='" + position + '\'' +
+                '}';
+    }
 }

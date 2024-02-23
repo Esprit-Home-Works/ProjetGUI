@@ -25,17 +25,17 @@ public class TeamServiceImpl extends TeamService {
 
     @Override
     public void updateTeam(Team team) {
-         entityManager.merge(team);
+        entityManager.merge(team);
     }
 
 
+/*
     @Override
-    public void deleteTeam(int teamId) {
+    public void DeleteTeam(int teamId) {
         Team team = getTeamById(teamId);
-        if (team != null) {
-            entityManager.remove(team);
-        }
+        if (team != null) entityManager.remove(team);
     }
+*/
 
     @Override
     public Team getTeamById(int teamId) {

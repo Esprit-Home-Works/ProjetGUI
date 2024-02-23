@@ -18,16 +18,16 @@ public class User {
     private String email;
 
     public User(int id, String username, String password, String email) {
-        this.id = id;
+        this.id = this.id;
         this.username = username;
         this.password = password;
         this.email = email;
     }
 
     public User(String username, String password, String email) {
-        this.username = username;
+        this.username = String.valueOf(username);
         this.password = password;
-        this.email = email;
+        this.email = String.valueOf(email);
     }
 
     public User() {

@@ -31,7 +31,9 @@ public class TableCreator {
     private void createTeamTable() {
         String createTeamTableSQL = "CREATE TABLE IF NOT EXISTS Team (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "teamName VARCHAR(255)" +
+                "teamName VARCHAR(255)," +
+                "teamDescription VARCHAR(255)," +
+                "teamLocation VARCHAR(255)" +
                 ")";
         executeSQL(createTeamTableSQL);
     }

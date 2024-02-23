@@ -1,19 +1,28 @@
 package com.project.guiproject.controllers.TeamPlayers;
+
 import com.project.guiproject.models.Player;
 import com.project.guiproject.services.PlayerService;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
+import static com.project.guiproject.migration.MigrationInterface.connection;
+
 public class AddPlayerController {
+
+    @FXML
+    private ComboBox<Player> playerComboBox;
 
     @FXML
     private TextField playerNameField;
 
     @FXML
-    private TextField playerAgeField;
+    private Spinner<Integer> playerAgeField;
 
     @FXML
     private TextField playerPositionField;
@@ -21,22 +30,58 @@ public class AddPlayerController {
     private PlayerService playerService;
 
     @FXML
-    private void addPlayer(ActionEvent event) {
+    private void addPlayer(ActionEvent event) throws SQLException {
+        playerService = new PlayerService(connection);
         String playerName = playerNameField.getText();
-        int playerAge = Integer.parseInt(playerAgeField.getText());
+        int playerAge = playerAgeField.getValue();
         String playerPosition = playerPositionField.getText();
 
+        // Add validation logic if needed
+
         Player player = new Player(playerName, playerAge, playerPosition);
+
         try {
-            add(player);
+            playerService.addPlayer(player);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        // Optionally, show a success message to the user
     }
 
+    public void populatePlayerComboBox(ObservableList<Player> players) {
+        playerComboBox.setItems(players);
+    }
 
-    public void add(Player player) throws SQLException {
-        playerService.addPlayer(player);
+    @FXML
+    private void playerSelected(ActionEvent event) {
+        Player selectedPlayer = playerComboBox.getSelectionModel().getSelectedItem();
+
+        if (selectedPlayer != null) {
+            playerNameField.setText(selectedPlayer.getPlayerName());
+            playerAgeField.getValueFactory().setValue(selectedPlayer.getAge());
+            playerPositionField.setText(selectedPlayer.getPosition());
+        }
+    }
+
+    @FXML
+    private void updatePlayer(ActionEvent event) throws SQLException {
+        playerService = new PlayerService(connection);
+
+        int playerId = playerComboBox.getSelectionModel().getSelectedItem().getId();
+
+        String playerName = playerNameField.getText();
+        int playerAge = playerAgeField.getValue();
+        String playerPosition = playerPositionField.getText();
+
+        // Add validation logic if needed
+
+        Player player = new Player(playerId, playerName, playerAge, playerPosition);
+
+        try {
+            playerService.updatePlayer(player);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         // Optionally, show a success message to the user
     }
 

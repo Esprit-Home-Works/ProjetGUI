@@ -48,6 +48,9 @@ public class TeamService {
         }
     }
 
+
+
+
     // Method to get a team by ID
     public Team getTeamById(int teamId) throws SQLException {
         String query = "SELECT * FROM team WHERE id=?";

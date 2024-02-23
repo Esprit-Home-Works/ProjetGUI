@@ -2,42 +2,84 @@ package com.project.guiproject.services;
 
 import com.project.guiproject.models.Player;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerService implements Player.PlayerService {
+public class PlayerService {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private Connection connection;
 
-    @Override
-    public Player addPlayer(Player player) {
-        entityManager.persist(player);
-        return player;
+    // Constructor to initialize the database connection
+    public PlayerService(Connection connection) {
+        this.connection = connection;
     }
 
-    @Override
-    public Player updatePlayer(Player player) {
-        return entityManager.merge(player);
-    }
-
-    @Override
-    public void deletePlayer(int playerId) {
-        Player player = getPlayerById(playerId);
-        if (player != null) {
-            entityManager.remove(player);
+    // Method to add a new player
+    public void addPlayer(Player player) throws SQLException {
+        String query = "INSERT INTO player (playerName, playerAge, playerPosition) VALUES (?, ?, ?)";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, player.getPlayerName());
+            statement.setInt(2, player.getAge());
+            statement.setString(3, player.getPosition());
+            statement.executeUpdate();
         }
     }
 
-    @Override
-    public Player getPlayerById(int playerId) {
-        return entityManager.find(Player.class, playerId);
+    // Method to update an existing player
+    public void updatePlayer(Player player) throws SQLException {
+        String query = "UPDATE player SET playerName=?, playerAge=?, playerPosition=? WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, player.getPlayerName());
+            statement.setInt(2, player.getAge());
+            statement.setString(3, player.getPosition());
+            statement.setInt(4, player.getId());
+            statement.executeUpdate();
+        }
     }
 
-    @Override
-    public List<Player> getAllPlayers() {
-        return entityManager.createQuery("SELECT p FROM Player p", Player.class)
-                .getResultList();
+    // Method to delete a player by ID
+    public void deletePlayer(int playerId) throws SQLException {
+        String query = "DELETE FROM player WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, playerId);
+            statement.executeUpdate();
+        }
+    }
+
+    // Method to get a player by ID
+    public Player getPlayerById(int playerId) throws SQLException {
+        String query = "SELECT * FROM player WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, playerId);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return new Player(
+                        resultSet.getInt("id"),
+                        resultSet.getString("playerName"),
+                        resultSet.getInt("playerAge"),
+                        resultSet.getString("playerPosition")
+                );
+            }
+        }
+        return null;
+    }
+
+    // Method to get all players
+    public List<Player> getAllPlayers() throws SQLException {
+        List<Player> players = new ArrayList<>();
+        String query = "SELECT * FROM player";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet resultSet = statement.executeQuery(query);
+            while (resultSet.next()) {
+                players.add(new Player(
+                        resultSet.getInt("id"),
+                        resultSet.getString("playerName"),
+                        resultSet.getInt("playerAge"),
+                        resultSet.getString("playerPosition")
+                ));
+            }
+        }
+        return players;
     }
 }

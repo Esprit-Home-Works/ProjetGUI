@@ -1,5 +1,3 @@
-/* styles.css */
-
 /* Apply styles to the root node */
 .root {
     -fx-background-color: #f0f0f0; /* Set background color */
@@ -9,6 +7,7 @@
 .label {
     -fx-font-size: 14px; /* Set font size */
     -fx-font-weight: bold; /* Set font weight to bold */
+    -fx-text-fill: #ffffff; /* White text color */
 }
 
 /* Apply styles to text fields */
@@ -16,19 +15,43 @@
     -fx-font-size: 14px; /* Set font size */
     -fx-padding: 5px; /* Add padding */
     -fx-pref-width: 200px; /* Set preferred width */
+    -fx-background-color: #424242; /* Dark gray background */
+    -fx-text-fill: #ffffff; /* White text color */
 }
 
 /* Apply styles to buttons */
 .button {
     -fx-font-size: 14px; /* Set font size */
     -fx-padding: 8px 16px; /* Add padding */
-    -fx-background-color: #4CAF50; /* Set background color */
-    -fx-text-fill: white; /* Set text color */
+    -fx-text-fill: #ffffff; /* White text color */
     -fx-border-radius: 5px; /* Set border radius */
     -fx-cursor: hand; /* Set cursor */
+    -fx-pref-width: 120px; /* Set preferred width */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* Apply styles to specific buttons */
+.button-primary {
+    -fx-background-color: #42b15d; /* Green background color */
+}
+
+.button-secondary {
+    -fx-background-color: #ff5722; /* Orange background color */
 }
 
 /* Apply styles to buttons when hovered */
 .button:hover {
-    -fx-background-color: #45a049; /* Darken background color */
+    -fx-opacity: 0.8; /* Reduce opacity on hover */
+}
+
+/* Apply styles to VBox */
+.vbox {
+    -fx-background-color: #1c1c1c; /* Dark background color */
+    -fx-padding: 20px; /* Add padding */
+}
+
+/* Style for the title label */
+.label-title {
+    -fx-font-size: 24px;
+    -fx-text-fill: #ffffff; /* White text color */
 }

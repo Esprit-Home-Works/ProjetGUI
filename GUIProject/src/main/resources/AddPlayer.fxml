@@ -1,33 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<VBox spacing="10" alignment="CENTER" prefHeight="303.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.TeamPlayers.AddPlayerController" styleClass="com.project.GUIProject.resources.styles.css">
 
-<VBox xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.project.guiproject.controllers.TeamPlayers.AddPlayerController">
 
-    <Label text="Add Player" style="-fx-font-size: 18px;"/>
 
-    <HBox spacing="10" alignment="CENTER">
+    <!-- Title -->
+    <Label style="-fx-font-size: 24px;" text="Add Player" textFill="#a43838"/>
+
+    <!-- Player Name -->
+    <HBox alignment="CENTER" spacing="10">
         <Label text="Name:"/>
         <TextField fx:id="playerNameField"/>
     </HBox>
 
-    <HBox spacing="10" alignment="CENTER">
+    <!-- Player Age -->
+    <HBox alignment="CENTER" spacing="10">
         <Label text="Age:"/>
-        <TextField fx:id="playerAgeField"/>
+        <Spinner fx:id="playerAgeField" min="0" max="150" initialValue="20" />
     </HBox>
 
-    <HBox spacing="10" alignment="CENTER">
+    <!-- Player Position -->
+    <HBox alignment="CENTER" spacing="10">
         <Label text="Position:"/>
         <TextField fx:id="playerPositionField"/>
     </HBox>
 
-    <Button text="Add Player" onAction="#addPlayer"/>
+    <!-- Add Button with primary style -->
+    <Button fx:id="addButtonPrimary" styleClass="button button-primary" prefWidth="120.0" onAction="#addPlayer" text="+ Add Player" textFill="WHITE" />
+
 
 </VBox>

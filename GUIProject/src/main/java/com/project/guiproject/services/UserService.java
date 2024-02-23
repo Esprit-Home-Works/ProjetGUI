@@ -13,7 +13,8 @@ public class UserService implements IService<User> {
     private final Connection connection;
 
     public UserService() {
-        connection = MyDataBase.getInstace().getConnection();
+        MyDataBase.getInstace();
+        connection = MyDataBase.getConnection();
     }
 
     @Override
@@ -57,7 +58,7 @@ public class UserService implements IService<User> {
         PS.executeQuery();
         ResultSet RS = PS.getResultSet();
         return RS.next()
-                ? new User(RS.getInt("id"), RS.getString("username"), RS.getString("password"), RS.getString("email"))
+                ? new User(id, RS.getString("username"), RS.getString("password"), RS.getString("email"))
                 : null;
 
     }

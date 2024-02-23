@@ -66,7 +66,6 @@ public class Team {
         this.teamlocation = teamLocation;
     }
 
-
     public Team(int id, String teamDescription) {
         this.id = id;
         this.teamDescription = teamDescription;
