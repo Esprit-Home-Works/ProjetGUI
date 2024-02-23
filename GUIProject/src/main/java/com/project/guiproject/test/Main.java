@@ -48,7 +48,7 @@ import javafx.stage.Stage;
         }
     }
 }*/
-public class Main extends Application {
+/*public class Main extends Application {
 
     Init initDb = new Init();
 
@@ -58,6 +58,30 @@ public class Main extends Application {
             initDb.run(true);
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/ManageMatches.fxml")));
             primaryStage.setTitle("Systeme de gestion des matches");
+            primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public static void main(String[] args) {
+        launch();
+    }
+}*/
+
+public class Main extends Application {
+
+    Init initDb = new Init();
+
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        try {
+            initDb.run(true);
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/ManageTournament.fxml")));
+            primaryStage.setTitle("Systeme de gestion des Tournois");
+            primaryStage.setHeight(720);
+            primaryStage.setWidth(1280);
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

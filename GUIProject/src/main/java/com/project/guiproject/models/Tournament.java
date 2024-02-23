@@ -16,6 +16,7 @@ public class Tournament {
     private int maxTeams;
 
 
+
     public Tournament(int id, String name, LocalDate startDate, LocalDate endDate, String description, int maxTeams) {
         this.id = id;
         this.name = name;
@@ -25,7 +26,14 @@ public class Tournament {
         this.maxTeams = maxTeams;
         this.teams = new ArrayList<>();
     }
-
+    public Tournament( String name, LocalDate startDate, LocalDate endDate, String description, int maxTeams) {
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.description = description;
+        this.maxTeams = maxTeams;
+        this.teams = new ArrayList<>();
+    }
     public int getId() {
         return id;
     }

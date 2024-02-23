@@ -6,10 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.project.guiproject.models.Match;
+import com.project.guiproject.utils.MyDataBase;
 import com.project.guiproject.utils.MyDataBase;
 import com.resend.Resend;
 import com.resend.core.exception.ResendException;
@@ -125,5 +128,27 @@ public class MatchService implements IService<Match> {
             matches.add(match);
         }
         return matches;
+    }
+    //  int matchId = MatchService.createRandomMatch();
+    public static int createRandomMatch() {
+    // create a random match in the next 5 days
+    // create a random match in the next 5 days
+    int duration = 90;
+    String name = "Match";
+    String description = "Tournament Match";
+    String code = "Code";
+    Date startDate = Date.valueOf(LocalDate.now().plusDays(new Random().nextInt(5)));
+    Date endDate = Date.valueOf(startDate.toLocalDate().plusDays(1));
+    Match match = new Match(duration, name, description, code, startDate, endDate);
+    try {
+        MatchService matchService = new MatchService();
+        matchService.add(match);
+        return match.getId();
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return -1;
+
+    }
+
     }
 }

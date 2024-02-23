@@ -1,6 +1,7 @@
 package com.project.guiproject.migration;
 
 import com.project.guiproject.seeders.MatchesSeeder;
+import com.project.guiproject.seeders.TournamentSeeder;
 
 import java.sql.SQLException;
 
@@ -17,5 +18,16 @@ public class Init {
             MatchesSeeder matchesSeeder = new MatchesSeeder();
             matchesSeeder.seed();
         }
+        TournamentMigration tournamentMigration = new TournamentMigration();
+        try {
+            tournamentMigration.migrate(true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+    }
+        if (seed) {
+            TournamentSeeder tournamentSeeder = new TournamentSeeder();
+            tournamentSeeder.seed();
+        }
+
     }
 }

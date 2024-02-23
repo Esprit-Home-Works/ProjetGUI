@@ -1,8 +1,8 @@
-package com.project.guiproject.controllers.matches;
+package com.project.guiproject.controllers.tournament;
 
 import com.project.guiproject.helpers.NavigationHelpers;
-import com.project.guiproject.models.Match;
-import com.project.guiproject.services.MatchService;
+import com.project.guiproject.models.Tournament;
+import com.project.guiproject.services.TournamentService;
 import com.project.guiproject.test.Storage;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,86 +24,69 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class matchController implements Initializable {
-    MatchService matchService = new MatchService();
+public class tournamentController implements Initializable {
+    TournamentService tournamentService = new TournamentService();
 
-    Match selectedItem;
+    Tournament selectedItem;
 
-    TableView.TableViewSelectionModel<Match> selectionModel;
-
-    @FXML
-    private TableView<Match> MatchesList;
+    TableView.TableViewSelectionModel<Tournament> selectionModel;
 
     @FXML
-    public TableColumn<Match, String> name;
+    private TableView<Tournament> TournamentsList;
 
     @FXML
-    public TableColumn<Match, String> description;
+    public TableColumn<Tournament, String> name;
     @FXML
-    public TableColumn<Match, String> code;
+    public TableColumn<Tournament, String> description;
     @FXML
-    public TableColumn<Match, String> duration;
+    public TableColumn<Tournament, String> id;
     @FXML
-    public TableColumn<Match, String> startDate;
-
+    public TableColumn<Tournament, String> startDate;
     @FXML
-    public TableColumn<Match, String> endDate;
-
+    public TableColumn<Tournament, String> endDate;
+    @FXML
+    public TableColumn<Tournament, String> maxTeams;
     @FXML
     public Button deleteButton;
-
     @FXML
     public Button updateButton;
-
     @FXML
     public Button addButton;
-
-    /*@FXML
-    public Button homeButton;*/
-
     @FXML
     public TextField idFilter;
-
-    @FXML
-    public TextField nomFilter;
-
     @FXML
     public ImageView background;
 
     NavigationHelpers nh = new NavigationHelpers();
 
-    private ArrayList<Match> data;
+    private ArrayList<Tournament> data;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
-            loadMatches();
+            loadTournaments();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         initButtons();
         initFilters();
-        Image image1 = new Image("C:\\Users\\YassineSBOUI\\IdeaProjects\\ProjetGUI\\GUIProject\\src\\main\\java\\com\\project\\guiproject\\controllers\\matches\\back.jpg");
+        Image image1 = new Image("C:\\Users\\YassineSBOUI\\IdeaProjects\\ProjetGUI\\GUIProject\\src\\main\\java\\com\\project\\guiproject\\controllers\\tournament\\back.jpg");
         background.setImage(image1);
     }
 
     private void initFilters() {
         // add listener to the filter fields
         idFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
-        nomFilter.textProperty().addListener((observable, oldValue, newValue) -> filter());
+
     }
 
     public void filter() {
-        data = matchService.filter(nomFilter.getText() , idFilter.getText());
-        MatchesList.setItems(FXCollections.observableArrayList(data));
+        data = tournamentService.filter(idFilter.getText());
+        TournamentsList.setItems(FXCollections.observableArrayList(data));
     }
     @FXML
     public void clearIdFilter() {
         idFilter.clear();
-    }
-    @FXML
-    public void clearNomFilter() {
-        nomFilter.clear();
     }
 
     private void initButtons() {
@@ -111,22 +94,22 @@ public class matchController implements Initializable {
         updateButton.setVisible(false);
     }
 
-    private void loadMatches() throws SQLException {
-        data = (ArrayList<Match>) matchService.get();
+    private void loadTournaments() throws SQLException {
+        data = (ArrayList<Tournament>) tournamentService.get();
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        code.setCellValueFactory(new PropertyValueFactory<>("code"));
-        duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
         startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
         endDate.setCellValueFactory(new PropertyValueFactory<>("endDate"));
-        MatchesList.setItems(FXCollections.observableArrayList(data));
-        selectionModel = MatchesList.getSelectionModel();
+        maxTeams.setCellValueFactory(new PropertyValueFactory<>("maxTeams"));
+        TournamentsList.setItems(FXCollections.observableArrayList(data));
+        selectionModel = TournamentsList.getSelectionModel();
     }
 
     @FXML
     public void clickItem(MouseEvent event) {
         event.consume();
-        Match temp = selectionModel.getSelectedItem();
+        Tournament temp = selectionModel.getSelectedItem();
         if (temp != null) {
             selectedItem = temp;
             deleteButton.setVisible(true);
@@ -141,8 +124,8 @@ public class matchController implements Initializable {
             alert.setContentText("Êtes-vous sûr de vouloir supprimer cette classe ("+ selectedItem.getName() + ") ?");
             alert.showAndWait().filter(response -> response == ButtonType.OK).ifPresent(response -> {
                 try {
-                    matchService.delete(selectedItem.getId());
-                    loadMatches();
+                    tournamentService.delete(selectedItem.getId());
+                    loadTournaments();
                     selectionModel.clearSelection();
                     deleteButton.setVisible(false);
                     updateButton.setVisible(false);
@@ -157,8 +140,8 @@ public class matchController implements Initializable {
         if (selectedItem != null) {
             Pane ctrl;
             try {
-                Storage.Match.code = selectedItem.getCode();
-                ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertMatches.fxml")));
+                Storage.Tournament.id = String.valueOf(selectedItem.getId());
+                ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertTournament.fxml")));
                 nh.navigate(addButton, "Modifier classe", ctrl);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -169,7 +152,7 @@ public class matchController implements Initializable {
     public void addButtonClicked(ActionEvent ignoredEv) {
         Pane ctrl;
         try {
-            ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertMatches.fxml")));
+            ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertTournament.fxml")));
             nh.navigate(addButton, "Ajouter classe", ctrl);
         } catch (IOException e) {
             e.printStackTrace();

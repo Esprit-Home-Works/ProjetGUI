@@ -2,35 +2,35 @@ package com.project.guiproject.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
-public class MyDatabase {
+public class MyDataBase {
+    private static MyDataBase instance;
+    private static final String URL = "jdbc:mysql://localhost:3306/projetgui";
+    private static final String USER = "root";
+    private static final String PASSWORD = "";
 
-    private static MyDatabase instance;
-    private final String URL = "jdbc:mysql://localhost:3306/java_fx_project";
-    private final String USER = "root";
-    private final String PASSWORD = "";
-    private Connection connection;
+    private static Connection connection;
 
-    private MyDatabase() {
+    public MyDataBase() {
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connection established");
-        } catch (SQLException e) {
+        } catch (Exception e) {
+            System.out.println("Connection refused");
+
             System.err.println(e.getMessage());
         }
     }
 
-    public static MyDatabase getInstance() {
+    public static MyDataBase getInstace() {
         if (instance == null) {
-            instance = new MyDatabase();
+            instance = new MyDataBase();
         }
         return instance;
     }
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
-
 
 }
