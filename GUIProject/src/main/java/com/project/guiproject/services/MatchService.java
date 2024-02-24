@@ -15,6 +15,7 @@ import com.resend.Resend;
 import com.resend.core.exception.ResendException;
 import com.resend.services.emails.model.SendEmailRequest;
 import com.resend.services.emails.model.SendEmailResponse;
+import javafx.scene.chart.XYChart;
 
 public class MatchService implements IService<Match> {
 
@@ -125,5 +126,34 @@ public class MatchService implements IService<Match> {
             matches.add(match);
         }
         return matches;
+    }
+
+    public int count() {
+        try {
+            String query = "select count(*) from matches";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (Exception ex) {
+            return 0;
+        }
+    }
+
+    // add getChartData method
+    public XYChart.Series<Number, Number> getChartData() {
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        try {
+            String query = "select name, duration from matches";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            int index = 0;
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(index++, rs.getInt("duration")));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return series;
     }
 }

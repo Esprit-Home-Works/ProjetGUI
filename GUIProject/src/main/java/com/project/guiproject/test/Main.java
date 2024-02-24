@@ -56,7 +56,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         try {
             initDb.run(true);
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/ManageMatches.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/Dashboard.fxml")));
             primaryStage.setTitle("Systeme de gestion des matches");
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
             primaryStage.setScene(new Scene(root));

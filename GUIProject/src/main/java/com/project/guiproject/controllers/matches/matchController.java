@@ -70,6 +70,9 @@ public class matchController implements Initializable {
     @FXML
     public ImageView background;
 
+    @FXML
+    public Button homeButton;
+
     NavigationHelpers nh = new NavigationHelpers();
 
     private ArrayList<Match> data;
@@ -171,6 +174,17 @@ public class matchController implements Initializable {
         try {
             ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertMatches.fxml")));
             nh.navigate(addButton, "Ajouter classe", ctrl);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void goHome(ActionEvent ignoredEv) {
+        Pane ctrl;
+        try {
+            ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/Dashboard.fxml")));
+            nh.navigate(homeButton, "Dashboard", ctrl);
         } catch (IOException e) {
             e.printStackTrace();
         }
