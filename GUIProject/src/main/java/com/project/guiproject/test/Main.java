@@ -80,8 +80,8 @@ public class Main extends Application {
             initDb.run(true);
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/LoginPage.fxml")));
             primaryStage.setTitle("Systeme de gestion des Tournois");
-            primaryStage.setHeight(410);
-            primaryStage.setWidth(640);
+            primaryStage.setHeight(1080);
+            primaryStage.setWidth(1920);
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
