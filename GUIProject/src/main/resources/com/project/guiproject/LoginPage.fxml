@@ -8,12 +8,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.user.userLoginController">
-    <Label layoutX="44.0" layoutY="66.0" text="Nom d'utilisateur :" />
-    <TextField fx:id="usernameField" layoutX="150.0" layoutY="62.0" prefWidth="200.0" />
-    <Label layoutX="44.0" layoutY="118.0" text="Mot de passe :" />
-    <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="114.0" prefWidth="200.0" />
-    <Button layoutX="160.0" layoutY="178.0" mnemonicParsing="false" onAction="#loginButtonClicked" text="Se connecter" />
-    <Hyperlink fx:id="GoSignUp" layoutX="130.0" layoutY="218.0" text="Créer un compte" onAction="#createAccountClicked" />
-    <Label fx:id="errorMessageLabel" layoutX="44.0" layoutY="250.0" text="" textFill="RED"/>
+<?import javafx.geometry.Insets?>
+<AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.user.userLoginController"
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="1300.0" style="-fx-background-color: lightgrey;">
+
+    <Label layoutX="50.0" layoutY="250.0" text="Nom d'utilisateur :" />
+    <TextField fx:id="usernameField" layoutX="200.0" layoutY="246.0" prefWidth="300.0" />
+    <Label layoutX="50.0" layoutY="300.0" text="Mot de passe :" />
+    <PasswordField fx:id="passwordField" layoutX="200.0" layoutY="296.0" prefWidth="300.0" />
+    <Button fx:id="Connect" layoutX="250.0" layoutY="346.0" mnemonicParsing="false" onAction="#loginButtonClicked" text="Se connecter" />
+    <Hyperlink fx:id="GoSignUp" layoutX="220.0" layoutY="396.0" text="Créer un compte" onAction="#createAccountClicked" />
+    <Label fx:id="errorMessageLabel" layoutX="50.0" layoutY="450.0" text="" textFill="RED"/>
+
+
+
+    <padding>
+        <Insets top="200.0" right="200.0" bottom="200.0" left="200.0" />
+    </padding>
+
 </AnchorPane>

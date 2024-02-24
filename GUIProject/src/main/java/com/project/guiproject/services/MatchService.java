@@ -13,6 +13,11 @@ import java.util.Random;
 
 import com.project.guiproject.models.Match;
 import com.project.guiproject.utils.MyDatabase;
+import com.resend.Resend;
+import com.resend.core.exception.ResendException;
+import com.resend.services.emails.model.SendEmailRequest;
+import com.resend.services.emails.model.SendEmailResponse;
+import javafx.scene.chart.XYChart;
 
 public class MatchService implements IService<Match> {
 
@@ -21,6 +26,7 @@ public class MatchService implements IService<Match> {
     public MatchService() {
         connection = MyDatabase.getInstace().getConnection();
     }
+
     @Override
     public void add(Match match) throws SQLException {
         String req = "INSERT INTO matches (duration, name, description, code, startDate, endDate) VALUES ('"
@@ -72,6 +78,7 @@ public class MatchService implements IService<Match> {
                         PS.getResultSet().getDate("endDate"))
                 : null;
     }
+
     public Match getByCode(String code) throws SQLException {
         String query = "SELECT * FROM matches WHERE code = ?";
         PreparedStatement PS = connection.prepareStatement(query);
@@ -102,7 +109,7 @@ public class MatchService implements IService<Match> {
     }
 
     public ArrayList<Match> filter(String text, String text1) {
-        try{
+        try {
             String query = "select * from matches where name like ? and code like ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, "%" + text + "%");
@@ -114,7 +121,7 @@ public class MatchService implements IService<Match> {
         }
     }
 
-    public  ArrayList<Match> getMatches(ResultSet rs) throws SQLException {
+    public ArrayList<Match> getMatches(ResultSet rs) throws SQLException {
         ArrayList<Match> matches = new ArrayList<>();
         while (rs.next()) {
             Match match = new Match(rs.getInt("id"), rs.getInt("duration"), rs.getString("name"),
@@ -124,26 +131,54 @@ public class MatchService implements IService<Match> {
         }
         return matches;
     }
-    //  int matchId = MatchService.createRandomMatch();
-    public static int createRandomMatch() {
-    // create a random match in the next 5 days
-    // create a random match in the next 5 days
-    int duration = 90;
-    String name = "Match";
-    String description = "Tournament Match";
-    String code = "Code";
-    Date startDate = Date.valueOf(LocalDate.now().plusDays(new Random().nextInt(5)));
-    Date endDate = Date.valueOf(startDate.toLocalDate().plusDays(1));
-    Match match = new Match(duration, name, description, code, startDate, endDate);
-    try {
-        MatchService matchService = new MatchService();
-        matchService.add(match);
-        return match.getId();
-    } catch (SQLException e) {
-        e.printStackTrace();
-        return -1;
 
+    public int count() {
+        try {
+            String query = "select count(*) from matches";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (Exception ex) {
+            return 0;
+        }
     }
 
+    // add getChartData method
+    public XYChart.Series<Number, Number> getChartData() {
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        try {
+            String query = "select name, duration from matches";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            int index = 0;
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(index++, rs.getInt("duration")));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return series;
+    }
+
+    public static int createRandomMatch() {
+        // create a random match in the next 5 days
+        // create a random match in the next 5 days
+        int duration = 90;
+        String name = "Match";
+        String description = "Tournament Match";
+        String code = "Code";
+        Date startDate = Date.valueOf(LocalDate.now().plusDays(new Random().nextInt(5)));
+        Date endDate = Date.valueOf(startDate.toLocalDate().plusDays(1));
+        Match match = new Match(duration, name, description, code, startDate, endDate);
+        try {
+            MatchService matchService = new MatchService();
+            matchService.add(match);
+            return match.getId();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+
+        }
     }
 }
