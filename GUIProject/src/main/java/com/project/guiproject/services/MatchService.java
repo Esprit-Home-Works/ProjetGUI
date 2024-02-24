@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.project.guiproject.models.Match;
-import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.MyDatabase;
 import com.resend.Resend;
 import com.resend.core.exception.ResendException;
 import com.resend.services.emails.model.SendEmailRequest;
@@ -24,8 +24,9 @@ public class MatchService implements IService<Match> {
     private Connection connection;
 
     public MatchService() {
-        connection = MyDataBase.getInstace().getConnection();
+        connection = MyDatabase.getInstace().getConnection();
     }
+
     @Override
     public void add(Match match) throws SQLException {
         String req = "INSERT INTO matches (duration, name, description, code, startDate, endDate) VALUES ('"
@@ -77,6 +78,7 @@ public class MatchService implements IService<Match> {
                         PS.getResultSet().getDate("endDate"))
                 : null;
     }
+
     public Match getByCode(String code) throws SQLException {
         String query = "SELECT * FROM matches WHERE code = ?";
         PreparedStatement PS = connection.prepareStatement(query);
@@ -107,7 +109,7 @@ public class MatchService implements IService<Match> {
     }
 
     public ArrayList<Match> filter(String text, String text1) {
-        try{
+        try {
             String query = "select * from matches where name like ? and code like ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1, "%" + text + "%");
@@ -119,7 +121,7 @@ public class MatchService implements IService<Match> {
         }
     }
 
-    public  ArrayList<Match> getMatches(ResultSet rs) throws SQLException {
+    public ArrayList<Match> getMatches(ResultSet rs) throws SQLException {
         ArrayList<Match> matches = new ArrayList<>();
         while (rs.next()) {
             Match match = new Match(rs.getInt("id"), rs.getInt("duration"), rs.getString("name"),
@@ -158,6 +160,7 @@ public class MatchService implements IService<Match> {
         }
         return series;
     }
+
     public static int createRandomMatch() {
         // create a random match in the next 5 days
         // create a random match in the next 5 days
