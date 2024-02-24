@@ -1,17 +1,21 @@
 package com.project.guiproject.test;
 
-import com.project.guiproject.controllers.TeamPlayers.SearchPlayerController;
+import com.project.guiproject.controllers.TeamPlayers.AddPlayerController;
 import com.project.guiproject.migration.Init;
+import com.project.guiproject.models.Player;
 import com.project.guiproject.services.PlayerService;
+import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.TableCreator;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
-import static com.project.guiproject.migration.MigrationInterface.connection;
+import java.sql.Connection;
 
 public class Main extends Application {
 
@@ -168,54 +172,24 @@ public class Main extends Application {
 //        }
 
 /////////////////////////////////   STart update player  /////////////////////////////////
-//        try {
-//            Connection connection = MyDataBase.getInstace().getConnection();
-//            TableCreator tableCreator = new TableCreator(connection);
-//            tableCreator.createTables();
-//            System.out.println("Tables created successfully.");
-//
-//            FXMLLoader updatePlayerLoader = new FXMLLoader(getClass().getResource("/UpdatePlayer.fxml"));
-//            Parent updatePlayerRoot = updatePlayerLoader.load();
-//            AddPlayerController updatePlayerController = updatePlayerLoader.getController();
-//            PlayerService playerService = new PlayerService(connection);
-//
-//            // Populate the player ComboBox
-//            ObservableList<Player> players = FXCollections.observableArrayList(playerService.getAllPlayers());
-//            updatePlayerController.populatePlayerComboBox(players);
-//
-//            primaryStage.setTitle("Update Player");
-//            primaryStage.setScene(new Scene(updatePlayerRoot, 500, 250));
-//            primaryStage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            // Handle FXML loading error
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            // Handle other errors
-//        }
-/////////////////////////////////   END update player  /////////////////////////////////
-
-    }
-
-
-    ///////////////////////////// Search Player  /////////////////////
-    private static void launchSearchPlayer(Stage primaryStage) {
         try {
-            // Load search player UI
-            FXMLLoader searchPlayerLoader = new FXMLLoader(Main.class.getResource("/SearchPlayer.fxml"));
-            Parent searchPlayerRoot = searchPlayerLoader.load();
-            SearchPlayerController searchPlayerController = searchPlayerLoader.getController();
+            Connection connection = MyDataBase.getInstace().getConnection();
+            TableCreator tableCreator = new TableCreator(connection);
+            tableCreator.createTables();
+            System.out.println("Tables created successfully.");
+
+            FXMLLoader updatePlayerLoader = new FXMLLoader(getClass().getResource("/UpdatePlayer.fxml"));
+            Parent updatePlayerRoot = updatePlayerLoader.load();
+            AddPlayerController updatePlayerController = updatePlayerLoader.getController();
             PlayerService playerService = new PlayerService(connection);
-            // For example:
-            // searchPlayerController.setPlayerService(playerService);
 
-            // Set up search player stage
-            Stage searchPlayerStage = new Stage();
-            searchPlayerStage.initOwner(primaryStage);
-            searchPlayerStage.setTitle("Search Player");
-            searchPlayerStage.setScene(new Scene(searchPlayerRoot, 500, 300));
-            searchPlayerStage.show();
+            // Populate the player ComboBox
+            ObservableList<Player> players = FXCollections.observableArrayList(playerService.getAllPlayers());
+            updatePlayerController.populatePlayerComboBox(players);
 
+            primaryStage.setTitle("Update Player");
+            primaryStage.setScene(new Scene(updatePlayerRoot, 500, 250));
+            primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
             // Handle FXML loading error
@@ -223,7 +197,37 @@ public class Main extends Application {
             e.printStackTrace();
             // Handle other errors
         }
+/////////////////////////////////   END update player  /////////////////////////////////
+
     }
+
+
+    ///////////////////////////// Search Player  /////////////////////
+//    private static void launchSearchPlayer(Stage primaryStage) {
+//        try {
+//            // Load search player UI
+//            FXMLLoader searchPlayerLoader = new FXMLLoader(Main.class.getResource("/SearchPlayer.fxml"));
+//            Parent searchPlayerRoot = searchPlayerLoader.load();
+//            SearchPlayerController searchPlayerController = searchPlayerLoader.getController();
+//            PlayerService playerService = new PlayerService(connection);
+//            // For example:
+//            // searchPlayerController.setPlayerService(playerService);
+//
+//            // Set up search player stage
+//            Stage searchPlayerStage = new Stage();
+//            searchPlayerStage.initOwner(primaryStage);
+//            searchPlayerStage.setTitle("Search Player");
+//            searchPlayerStage.setScene(new Scene(searchPlayerRoot, 500, 300));
+//            searchPlayerStage.show();
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // Handle FXML loading error
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            // Handle other errors
+//        }
+//    }
 ///////////////////////////////// End Search Player ///////////////////////
 
     public static void main(String[] args) {
