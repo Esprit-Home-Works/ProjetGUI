@@ -25,6 +25,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class tournamentController implements Initializable {
+    public Button homeButton;
     TournamentService tournamentService = new TournamentService();
 
     Tournament selectedItem;
@@ -154,6 +155,16 @@ public class tournamentController implements Initializable {
         try {
             ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/UpsertTournament.fxml")));
             nh.navigate(addButton, "Ajouter classe", ctrl);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goHome(ActionEvent ignoredEv) {
+        Pane ctrl;
+        try {
+            ctrl = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/Dashboard.fxml")));
+            nh.navigate(homeButton, "Dashboard", ctrl);
         } catch (IOException e) {
             e.printStackTrace();
         }

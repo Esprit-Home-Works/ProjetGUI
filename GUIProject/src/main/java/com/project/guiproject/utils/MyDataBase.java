@@ -4,11 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class MyDataBase {
-    private static MyDataBase instance;
     private static final String URL = "jdbc:mysql://localhost:3306/projetgui";
     private static final String USER = "root";
     private static final String PASSWORD = "";
-
+    private static MyDataBase instance;
     private static Connection connection;
 
     public MyDataBase() {

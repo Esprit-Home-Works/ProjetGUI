@@ -10,7 +10,7 @@
 
 <?import javafx.geometry.Insets?>
 <AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.user.userLoginController"
-            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1300.0" prefWidth="1300.0" style="-fx-background-color: lightgrey;">
+            maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: lightgrey;">
 
     <Label layoutX="50.0" layoutY="250.0" text="Nom d'utilisateur :" />
     <TextField fx:id="usernameField" layoutX="200.0" layoutY="246.0" prefWidth="300.0" />
