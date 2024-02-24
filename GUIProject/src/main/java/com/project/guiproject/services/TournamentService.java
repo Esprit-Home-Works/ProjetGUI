@@ -228,6 +228,17 @@ public class TournamentService implements IService<Tournament> {
         }
 
     }
+    public int count() {
+        try {
+            String query = "select count(*) from tournaments";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (Exception ex) {
+            return 0;
+        }
+    }
 
 
 }

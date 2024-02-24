@@ -48,6 +48,7 @@ public class UpsertMatchesController implements Initializable{
     NavigationHelpers nh = new NavigationHelpers();
 
     Alert alert = new Alert(Alert.AlertType.NONE);
+    Resend resend = new Resend("re_PLCjF9Ji_FBVrk3VjM4JK6e8UPisA7AZn");
 
 
     @Override
@@ -141,6 +142,20 @@ public class UpsertMatchesController implements Initializable{
                             "Match non ajouté, un erreur est survenue.\nmessage d'erreur: " + e.getMessage());
                     alert.show();
                 }
+            }
+            SendEmailRequest sendEmailRequest = SendEmailRequest.builder()
+                    .from("raed <raed@resend.dev>")
+                    .to("anis.zidi2023@gmail.com")
+                    .subject("it works!")
+                    .html(String.format("<strong>hello a match with name : %s  and code : %s was created</strong>", name.getText(), code.getText()))
+                    .build();
+            navigateToMatches();
+
+            try {
+                SendEmailResponse data = resend.emails().send(sendEmailRequest);
+                System.out.println(data.getId());
+            } catch (ResendException e) {
+                e.printStackTrace();
             }
         }
     }
