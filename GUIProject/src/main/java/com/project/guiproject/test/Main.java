@@ -78,10 +78,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws IOException {
         try {
             initDb.run(true);
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/ManageTournament.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/project/guiproject/LoginPage.fxml")));
             primaryStage.setTitle("Systeme de gestion des Tournois");
-            primaryStage.setHeight(720);
-            primaryStage.setWidth(1280);
+            primaryStage.setHeight(410);
+            primaryStage.setWidth(640);
             primaryStage.getIcons().add(new Image("file:/assets/icon.png"));
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

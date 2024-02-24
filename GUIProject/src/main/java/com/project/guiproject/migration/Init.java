@@ -28,6 +28,12 @@ public class Init {
             TournamentSeeder tournamentSeeder = new TournamentSeeder();
             tournamentSeeder.seed();
         }
+        /*try {
+            UserMigration userMigration = new UserMigration();
+            userMigration.migrate(true);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
 
     }
 }

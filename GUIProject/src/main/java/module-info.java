@@ -5,6 +5,7 @@ module com.project.guiproject {
     requires org.controlsfx.controls;
     requires org.kordamp.bootstrapfx.core;
     requires resend.java;
+    requires java.prefs;
 
     exports com.project.guiproject.test;
     opens com.project.guiproject.test to javafx.fxml;
@@ -14,5 +15,9 @@ module com.project.guiproject {
     opens com.project.guiproject.controllers.matches;
     exports com.project.guiproject.controllers.tournament;
     opens com.project.guiproject.controllers.tournament;
+    exports com.project.guiproject.controllers.user;
+    opens com.project.guiproject.controllers.user;
+    exports com.project.guiproject.controllers;
+    opens com.project.guiproject.controllers to javafx.fxml;
 
 }

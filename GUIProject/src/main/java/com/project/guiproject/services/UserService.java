@@ -24,9 +24,9 @@ public class UserService implements IService<User> {
 
     @Override
     public void add(User User) throws SQLException {
-        String req = "INSERT INTO user (id,username,password,email) VALUES ('"
+        String req = "INSERT INTO user (id,username,password,email,role) VALUES ('"
                 + User.getId() + "', '" + User.getUsername() + "', '" + User.getPassword() + "', '"
-                + User.getEmail() + "')";
+                + User.getEmail() + "', '" + User.getRole() +"')";
         Statement statement = connection.createStatement();
         statement.executeUpdate(req);
     }
@@ -85,20 +85,22 @@ public class UserService implements IService<User> {
     }
 
     // Login and Signup Methods
-    public boolean login(String username, String password) {
+    public User login(String username, String password) throws SQLException {
         String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
-        try {
-
-            PreparedStatement pstmt = connection.prepareStatement(sql);
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, username);
             pstmt.setString(2, password);
-            ResultSet rs = pstmt.executeQuery();
-            return rs.next();
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    // User found, return the User object
+                    return new User(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("email"), rs.getString("role"));
+                }
+            }
         } catch (SQLException e) {
             e.printStackTrace();
+            throw e; // Re-throw the exception to handle it in the caller method
         }
-
-        return false;
+        return null; // Return null if login fails
     }
 
     public void signup(String username, String password, String email) throws SQLException {
