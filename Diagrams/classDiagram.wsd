@@ -11,6 +11,7 @@ class User {
   +manageProfile(): void
 }
 class Tournament {
+  +organizerId: string
   +id: string
   +name: string
   +description: string
@@ -24,7 +25,8 @@ class Tournament {
   +manageTournamentProgress(): void
 }
 
-class Team extends User {
+class Team {
+  teamLeaderId:string
   +description: string
   +logo: string
   +registerTeam(): void
@@ -32,9 +34,13 @@ class Team extends User {
 }
 
 class Player extends User{
-
+  +teamId: string  
   +registerPlayer(): void
   +managePlayerProfile(): void
+}
+
+class Organizer extends User{
+  +createTournament(): void
 }
 class Admin extends User{
 
@@ -63,11 +69,6 @@ class Statistics {
   +viewPastPerformances(): void
 }
 
-class TeamPlayer {
-  +id: string
-  +teamId: string
-  +playerId: string
-}
 class TournamentTeam {
   +id: string
   +tournamentId: string
@@ -89,9 +90,7 @@ class MatchTeam {
 Tournament -- TournamentTeam
 TournamentTeam -- Team
 
-' relationship many Team to many Player using the TeamPlayer class
-Team -- TeamPlayer
-TeamPlayer -- Player
+
 
 ' relationship many Tournament to many Match using the TournamentMatch class
 Tournament -- TournamentMatch

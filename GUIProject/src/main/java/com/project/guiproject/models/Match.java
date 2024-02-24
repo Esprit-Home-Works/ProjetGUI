@@ -26,6 +26,9 @@ public class Match {
         this.endDate = endDate;
     }
 
+    public Match() {
+    }
+
     public int getDuration() {
         return duration;
     }
