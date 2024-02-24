@@ -19,5 +19,7 @@ module com.project.guiproject {
     opens com.project.guiproject.controllers.user;
     exports com.project.guiproject.controllers;
     opens com.project.guiproject.controllers to javafx.fxml;
+    exports com.project.guiproject.controllers.dashboard;
+    opens com.project.guiproject.controllers.dashboard to javafx.fxml;
 
 }

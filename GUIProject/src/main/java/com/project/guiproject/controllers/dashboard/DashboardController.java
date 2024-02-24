@@ -2,6 +2,8 @@ package com.project.guiproject.controllers.dashboard;
 
 import com.project.guiproject.helpers.NavigationHelpers;
 import com.project.guiproject.services.MatchService;
+import com.project.guiproject.services.TournamentService;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,13 +31,15 @@ public class DashboardController implements Initializable{
     public LineChart<Number, Number> chart;
 
     private final MatchService MService = new MatchService();
+    private final TournamentService TService = new TournamentService();
     public NavigationHelpers nh = new NavigationHelpers();
+    public Label TournoisCount1;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         MatchesCount.setText(String.valueOf(MService.count()));
-
+        TournoisCount1.setText(String.valueOf(TService.count()));
         Image image1 = new Image("file:C:/Users/RaedCHARRAD/Desktop/esprit/ProjetGUI/GUIProject/src/main/java/com/project/guiproject/controllers/back.jpg");
         background.setImage(image1);
 
@@ -61,4 +65,7 @@ public class DashboardController implements Initializable{
     }
 
 
+    public void goToTournois(ActionEvent actionEvent) {
+        goToPage("Gérer les Tournois", "/com/project/guiproject/ManageTournament.fxml");
+    }
 }
