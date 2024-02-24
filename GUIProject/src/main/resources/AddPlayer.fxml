@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
 <VBox spacing="10" alignment="CENTER" prefHeight="303.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.TeamPlayers.AddPlayerController" styleClass="com.project.GUIProject.resources.styles.css">
 
-
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
 
     <!-- Title -->
     <Label style="-fx-font-size: 24px;" text="Add Player" textFill="#a43838"/>

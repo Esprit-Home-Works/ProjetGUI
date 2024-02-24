@@ -29,6 +29,7 @@ public class AddPlayerController {
 
     private PlayerService playerService;
 
+
     @FXML
     private void addPlayer(ActionEvent event) throws SQLException {
         playerService = new PlayerService(connection);
@@ -53,10 +54,10 @@ public class AddPlayerController {
     }
 
     @FXML
-    private void playerSelected(ActionEvent event) {
+    private void playerSelected() {
         Player selectedPlayer = playerComboBox.getSelectionModel().getSelectedItem();
-
         if (selectedPlayer != null) {
+            // Display player details in the input fields
             playerNameField.setText(selectedPlayer.getPlayerName());
             playerAgeField.getValueFactory().setValue(selectedPlayer.getAge());
             playerPositionField.setText(selectedPlayer.getPosition());
@@ -67,23 +68,34 @@ public class AddPlayerController {
     private void updatePlayer(ActionEvent event) throws SQLException {
         playerService = new PlayerService(connection);
 
-        int playerId = playerComboBox.getSelectionModel().getSelectedItem().getId();
+        // Get the selected player from the ComboBox
+        Player selectedPlayer = playerComboBox.getSelectionModel().getSelectedItem();
 
+        // Check if a player is selected
+        if (selectedPlayer == null) {
+            System.out.println("No player selected for update.");
+            return;
+        }
+
+        // Extract player information from the UI fields
+        int playerId = selectedPlayer.getId();
         String playerName = playerNameField.getText();
         int playerAge = playerAgeField.getValue();
         String playerPosition = playerPositionField.getText();
 
-        // Add validation logic if needed
-
-        Player player = new Player(playerId, playerName, playerAge, playerPosition);
+        // Create a new Player object with updated information
+        Player updatedPlayer = new Player(playerId, playerName, playerAge, playerPosition);
 
         try {
-            playerService.updatePlayer(player);
+            // Call the updatePlayer method in PlayerService
+            playerService.updatePlayer(updatedPlayer);
+            System.out.println("Player updated successfully.");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        // Optionally, show a success message to the user
     }
+
+
 
     public void setPlayerService(PlayerService playerService) {
         this.playerService = playerService;

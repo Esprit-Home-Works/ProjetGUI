@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.URL?>
+<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.TeamPlayers.SearchPlayerController">
+
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <!-- Search by Age -->
+    <Label layoutX="40.0" layoutY="102.0" text="Search by Age" />
+    <TextField fx:id="NameSearchTextField" layoutX="132.0" layoutY="98.0" />
+
+    <!-- Button to trigger search -->
+    <Button layoutX="174.0" layoutY="131.0" mnemonicParsing="false" onAction="#search" text="Search" />
+
+</AnchorPane>

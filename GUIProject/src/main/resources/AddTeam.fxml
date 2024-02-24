@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.URL?>
 <AnchorPane prefHeight="250.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.project.guiproject.controllers.TeamPlayers.AddTeamController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
     <Label layoutX="46.0" layoutY="48.0" text="Team Name"/>
     <TextField fx:id="teamNameField" layoutX="180.0" layoutY="46.0"/>
     <Label layoutX="46.0" layoutY="96.0" text="Team description"/>

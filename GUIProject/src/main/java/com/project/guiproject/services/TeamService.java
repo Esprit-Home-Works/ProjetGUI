@@ -86,4 +86,22 @@ public class TeamService {
         }
         return teams;
     }
+
+    public List<Team> get() throws SQLException {
+        List<Team> teams = new ArrayList<>();
+        String query = "SELECT * FROM team";
+        PreparedStatement PS = connection.prepareStatement(query);
+        PS.executeQuery();
+        ResultSet RS = PS.getResultSet();
+        while (RS.next()) {
+            Team team = new Team(
+                    RS.getInt("id"),
+                    RS.getString("teamName"),
+                    RS.getString("teamDescription"),
+                    RS.getString("teamLocation")
+            );
+            teams.add(team);
+        }
+        return teams;
+    }
 }

@@ -1,22 +1,17 @@
 package com.project.guiproject.test;
 
-import com.project.guiproject.controllers.TeamPlayers.AddTeamController;
+import com.project.guiproject.controllers.TeamPlayers.SearchPlayerController;
 import com.project.guiproject.migration.Init;
-import com.project.guiproject.models.Team;
-import com.project.guiproject.services.TeamService;
-import com.project.guiproject.utils.MyDataBase;
-import com.project.guiproject.utils.TableCreator;
+import com.project.guiproject.services.PlayerService;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
+
+import static com.project.guiproject.migration.MigrationInterface.connection;
 
 public class Main extends Application {
 
@@ -55,7 +50,11 @@ public class Main extends Application {
 //    }
 //    End add player
 
-//        // Add Team
+
+
+
+
+/////////////////////////////// Add Team////////////////////////////////////////////////////
 //        try {
 //            Connection connection = MyDataBase.getInstace().getConnection();
 //            TableCreator tableCreator = new TableCreator(connection);
@@ -75,10 +74,10 @@ public class Main extends Application {
 //            e.printStackTrace();
 //            // Handle other errors
 //        }
-//        // End Add Team
+/////////////////////////////// End Add Team//////////////////////////////////////////
 
-//        // Update Team
-//        try {
+///////////////////////////////// Update Team ////////////////////////////////////
+// try {
 //            Connection connection = MyDataBase.getInstace().getConnection();
 //            TableCreator tableCreator = new TableCreator(connection);
 //            tableCreator.createTables();
@@ -106,38 +105,38 @@ public class Main extends Application {
 //            e.printStackTrace();
 //            // Handle other errors
 //        }
-//        // End Update Team
+        // End Update Team
 
-// Delete Team
-        try {
-            Connection connection = MyDataBase.getInstace().getConnection();
-            TableCreator tableCreator = new TableCreator(connection);
-            tableCreator.createTables();
-            System.out.println("Tables created successfully.");
-
-            FXMLLoader deleteTeamLoader = new FXMLLoader(getClass().getResource("/DeleteTeam.fxml"));
-            Parent deleteTeamRoot = deleteTeamLoader.<Parent>load();
-            AddTeamController controller = deleteTeamLoader.getController();
-            TeamService teamService = new TeamService(connection);
-
-            ObservableList<Team> teams = FXCollections.observableArrayList(teamService.getAllTeams());
-
-            controller.populateTeamComboBox(teams);
-
-            primaryStage.setTitle("Delete Team");
-            primaryStage.setScene(new Scene(deleteTeamRoot, 400, 200));
-            primaryStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            // Handle FXML loading error
-        } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle SQL error
-        } catch (Exception e) {
-            e.printStackTrace();
-            // Handle other errors
-        }
-//        End delete TEam
+///////////////////////////////// Delete Team  /////////////////////////////////
+//        try {
+//            Connection connection = MyDataBase.getInstace().getConnection();
+//            TableCreator tableCreator = new TableCreator(connection);
+//            tableCreator.createTables();
+//            System.out.println("Tables created successfully.");
+//
+//            FXMLLoader deleteTeamLoader = new FXMLLoader(getClass().getResource("/DeleteTeam.fxml"));
+//            Parent deleteTeamRoot = deleteTeamLoader.<Parent>load();
+//            AddTeamController controller = deleteTeamLoader.getController();
+//            TeamService teamService = new TeamService(connection);
+//
+//            ObservableList<Team> teams = FXCollections.observableArrayList(teamService.getAllTeams());
+//
+//            controller.populateTeamComboBox(teams);
+//
+//            primaryStage.setTitle("Delete Team");
+//            primaryStage.setScene(new Scene(deleteTeamRoot, 400, 200));
+//            primaryStage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // Handle FXML loading error
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            // Handle SQL error
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            // Handle other errors
+//        }
+/////////////////////////////////  End delete TEam /////////////////////////////////
 
 
 //        Extra code
@@ -168,8 +167,64 @@ public class Main extends Application {
 //            // Handle other errors
 //        }
 
+/////////////////////////////////   STart update player  /////////////////////////////////
+//        try {
+//            Connection connection = MyDataBase.getInstace().getConnection();
+//            TableCreator tableCreator = new TableCreator(connection);
+//            tableCreator.createTables();
+//            System.out.println("Tables created successfully.");
+//
+//            FXMLLoader updatePlayerLoader = new FXMLLoader(getClass().getResource("/UpdatePlayer.fxml"));
+//            Parent updatePlayerRoot = updatePlayerLoader.load();
+//            AddPlayerController updatePlayerController = updatePlayerLoader.getController();
+//            PlayerService playerService = new PlayerService(connection);
+//
+//            // Populate the player ComboBox
+//            ObservableList<Player> players = FXCollections.observableArrayList(playerService.getAllPlayers());
+//            updatePlayerController.populatePlayerComboBox(players);
+//
+//            primaryStage.setTitle("Update Player");
+//            primaryStage.setScene(new Scene(updatePlayerRoot, 500, 250));
+//            primaryStage.show();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            // Handle FXML loading error
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            // Handle other errors
+//        }
+/////////////////////////////////   END update player  /////////////////////////////////
+
     }
 
+
+    ///////////////////////////// Search Player  /////////////////////
+    private static void launchSearchPlayer(Stage primaryStage) {
+        try {
+            // Load search player UI
+            FXMLLoader searchPlayerLoader = new FXMLLoader(Main.class.getResource("/SearchPlayer.fxml"));
+            Parent searchPlayerRoot = searchPlayerLoader.load();
+            SearchPlayerController searchPlayerController = searchPlayerLoader.getController();
+            PlayerService playerService = new PlayerService(connection);
+            // For example:
+            // searchPlayerController.setPlayerService(playerService);
+
+            // Set up search player stage
+            Stage searchPlayerStage = new Stage();
+            searchPlayerStage.initOwner(primaryStage);
+            searchPlayerStage.setTitle("Search Player");
+            searchPlayerStage.setScene(new Scene(searchPlayerRoot, 500, 300));
+            searchPlayerStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Handle FXML loading error
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Handle other errors
+        }
+    }
+///////////////////////////////// End Search Player ///////////////////////
 
     public static void main(String[] args) {
         launch(args);

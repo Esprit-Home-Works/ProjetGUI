@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import java.net.URL?>
+<AnchorPane prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.guiproject.controllers.TeamPlayers.AddPlayerController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+
+    <BorderPane layoutX="177.0" layoutY="45.0">
+      <center>
+          <ComboBox fx:id="playerComboBox" onAction="#playerSelected" prefHeight="26.0" prefWidth="176.0" promptText="Select Player" />
+      </center>
+   </BorderPane>
+    <Label layoutX="46.0" layoutY="96.0" text="Player Name" />
+    <TextField fx:id="playerNameField" layoutX="180.0" layoutY="96.0" />
+    <Label layoutX="46.0" layoutY="144.0" text="Player Age" />
+    <Spinner fx:id="playerAgeField" layoutX="180.0" layoutY="144.0" max="150" min="0" />
+    <Label layoutX="46.0" layoutY="196.0" text="Player Position" />
+    <TextField fx:id="playerPositionField" layoutX="180.0" layoutY="196.0" />
+    <Button layoutX="175.0" layoutY="250.0" mnemonicParsing="false" onAction="#updatePlayer" text="Update Player" />
+</AnchorPane>
+
