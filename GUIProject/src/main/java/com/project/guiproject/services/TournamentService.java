@@ -1,9 +1,8 @@
 package com.project.guiproject.services;
 
-import com.project.guiproject.models.Match;
 import com.project.guiproject.models.Tournament;
 import com.project.guiproject.models.TournamentMatch;
-import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.MyDatabase;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -15,7 +14,7 @@ public class TournamentService implements IService<Tournament> {
     private Connection connection;
 
     public TournamentService() {
-        this.connection = MyDataBase.getInstace().getConnection();
+        this.connection = MyDatabase.getInstace().getConnection();
     }
 
     @Override

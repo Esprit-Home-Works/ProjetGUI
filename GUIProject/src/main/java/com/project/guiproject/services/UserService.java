@@ -1,7 +1,6 @@
 package com.project.guiproject.services;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,9 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.project.guiproject.models.Match;
 import com.project.guiproject.models.User;
-import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.MyDatabase;
 
 
 public class UserService implements IService<User> {
@@ -19,7 +17,7 @@ public class UserService implements IService<User> {
     private Connection connection;
 
     public UserService() {
-        connection = MyDataBase.getInstace().getConnection();
+        connection = MyDatabase.getInstace().getConnection();
     }
 
     @Override

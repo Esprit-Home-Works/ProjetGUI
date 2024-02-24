@@ -12,19 +12,14 @@ import java.util.List;
 import java.util.Random;
 
 import com.project.guiproject.models.Match;
-import com.project.guiproject.utils.MyDataBase;
-import com.project.guiproject.utils.MyDataBase;
-import com.resend.Resend;
-import com.resend.core.exception.ResendException;
-import com.resend.services.emails.model.SendEmailRequest;
-import com.resend.services.emails.model.SendEmailResponse;
+import com.project.guiproject.utils.MyDatabase;
 
 public class MatchService implements IService<Match> {
 
     private Connection connection;
 
     public MatchService() {
-        connection = MyDataBase.getInstace().getConnection();
+        connection = MyDatabase.getInstace().getConnection();
     }
     @Override
     public void add(Match match) throws SQLException {

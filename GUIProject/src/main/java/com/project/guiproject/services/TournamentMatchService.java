@@ -1,11 +1,9 @@
 package com.project.guiproject.services;
 
-import com.project.guiproject.models.Tournament;
 import com.project.guiproject.models.TournamentMatch;
-import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.MyDatabase;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +13,7 @@ public class TournamentMatchService  {
 
 
     public TournamentMatchService() {
-        connection = MyDataBase.getInstace().getConnection();
+        connection = MyDatabase.getInstace().getConnection();
     }
 
     public static void add(TournamentMatch tournamentmatch) throws SQLException {

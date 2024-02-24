@@ -1,7 +1,7 @@
 package com.project.guiproject.services;
 
 import com.project.guiproject.models.Team;
-import com.project.guiproject.utils.MyDataBase;
+import com.project.guiproject.utils.MyDatabase;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,7 +16,7 @@ public class TeamService implements IService<Team> {
     private Connection connection;
 
     public TeamService() {
-        connection = MyDataBase.getInstace().getConnection();
+        connection = MyDatabase.getInstace().getConnection();
     }
 
     @Override

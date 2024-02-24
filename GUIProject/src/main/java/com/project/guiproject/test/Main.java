@@ -1,15 +1,9 @@
 package com.project.guiproject.test;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.Objects;
 
 import com.project.guiproject.migration.Init;
-import com.project.guiproject.models.Match;
-import com.project.guiproject.models.User;
-import com.project.guiproject.services.MatchService;
-import com.project.guiproject.services.UserService;
-import com.project.guiproject.utils.MyDataBase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
